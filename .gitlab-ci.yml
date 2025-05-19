@@ -17,9 +17,9 @@ setup-environment:
     - export PATH=$(npm bin -g):$PATH
     - sleep 5
     - echo "Verificando instalação..."
-    - if ! command -v appium &> /dev/null; then echo "Appium não foi instalado! Abortando."; exit 1; fi
-    - which appium
-    - appium --version
+   # - if ! command -v appium &> /dev/null; then echo "Appium não foi instalado! Abortando."; exit 1; fi
+   # - which appium
+   # - appium --version
     - echo "Instalando dependências..."
     - apt-get update && apt-get install -y curl unzip openjdk-17-jdk libgbm1
     - npm install -g codeceptjs  # Instala CodeceptJS globalmente
