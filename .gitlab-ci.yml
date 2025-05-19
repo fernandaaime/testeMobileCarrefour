@@ -30,7 +30,7 @@ run-tests:
     - echo "Verificando se Appium iniciou corretamente..."
     - ps aux | grep appium  # Verifica se o processo do Appium está ativo
     - echo "Iniciando Appium Server..."
-    - nohup appium --address 0.0.0.0 --port 4723 > /builds/${CI_PROJECT_PATH}/appium.log 2>&1 &
+    - nohup appium --address 192.168.15.17 --port 4723 > /builds/${CI_PROJECT_PATH}/appium.log 2>&1 &
     - sleep 30  # Aguarda tempo suficiente para inicialização
     - echo "Verificando se o arquivo de log do Appium foi criado..."
     - ls -lh /builds/${CI_PROJECT_PATH}/appium.log  # Confirma que o log existe
