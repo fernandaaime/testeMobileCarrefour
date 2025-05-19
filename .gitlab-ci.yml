@@ -22,15 +22,11 @@ setup-environment:
     - java -version  # Confirma que o Java está instalado corretamente
     - echo JAVA_HOME="$JAVA_HOME"
 
-
 run-tests:
   stage: test
   script:
-    - echo "Navegando para o diretório do projeto..."
-    - cd repo
-    - echo "Instalando dependências..."
+    - echo "Executando testes sem mudar de diretório..."
     - npm install
-    - echo "Executando testes..."
     - codeceptjs run
   artifacts:
     paths:
