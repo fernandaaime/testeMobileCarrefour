@@ -13,9 +13,12 @@ setup-environment:
   script:
     - echo "Instalando dependências..."
     - apt-get update && apt-get install -y curl unzip
-    - curl -o android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip
+    - curl -o android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-11076709_latest.zip
     - unzip android-sdk.zip -d $ANDROID_HOME
-    - export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
+    - ls -l $ANDROID_HOME/cmdline-tools/  # Verifica os arquivos extraídos
+    - export PATH="$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools:$PATH"
+    - chmod +x $ANDROID_HOME/cmdline-tools/bin/sdkmanager  # Ajusta permissões
+    - sdkmanager --list  # Confirma se o sdkmanager está funcionando
     - sdkmanager "platforms;android-30" "build-tools;30.0.3" "platform-tools"
     - echo "Instalando Appium..."
     - npm install -g appium@$APPIUM_VERSION
