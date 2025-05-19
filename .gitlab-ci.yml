@@ -37,6 +37,8 @@ run-tests:
     - echo "Garantindo que o Appium esteja instalado..." 
     - npm install -g appium --unsafe-perm=true --allow-root 
     - export PATH=$(npm bin -g):$PATH 
+    - echo "Instalando Dependencia"
+    - npm install
     - echo "Verificando se Appium está rodando..." 
     - if ! command -v appium &> /dev/null; then echo "Appium não está instalado! Abortando."; exit 1; fi 
     - echo "Confirmando versão do Appium..." 
