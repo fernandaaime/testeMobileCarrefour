@@ -38,12 +38,12 @@ run-tests:
     - echo "Garantindo que o Appium esteja instalado..."
     - npm install -g appium --unsafe-perm=true --allow-root
     - echo "Iniciando o Appium..."
-    - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
+    - nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
     - sleep 15 # Aumente o tempo de espera
     - echo "Conteúdo do log do Appium:"
     - cat appium.log
     - echo "Verificando conexão com Appium..."
-    - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/wd/hub/status
+    - curl --retry 15 --retry-delay 3 --retry-connrefused http://127.0.0.1:4723/wd/hub/status
     - echo "Executando os testes..."
     - npx codeceptjs run
   artifacts:
