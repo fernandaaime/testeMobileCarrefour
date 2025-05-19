@@ -1,0 +1,27 @@
+{
+  "name": "carrefour-mobile-e2e",
+  "version": "1.0.0",
+  "description": "Testes automatizados mobile com CodeceptJS + Appium + Allure",
+  "main": "codecept.conf.js",
+  "scripts": {
+    "test": "npx codeceptjs run --steps",
+    "allure:generate": "npx allure generate output --clean",
+    "allure:open": "npx allure open"
+  },
+  "dependencies": {
+    "@wdio/appium-service": "^8.18.2",
+    "appium": "^2.0.0",
+    "codeceptjs": "^3.7.3",
+    "webdriverio": "^8.18.2"
+  },
+  "devDependencies": {
+    "@codeceptjs/allure-legacy": "^1.0.2",
+    "allure-commandline": "^2.34.0",
+    "appium-chromedriver": "^7.0.20",
+    "appium-uiautomator2-driver": "^4.2.3",
+    "mocha": "^11.1.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
