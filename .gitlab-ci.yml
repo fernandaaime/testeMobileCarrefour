@@ -32,11 +32,14 @@ setup-environment:
     - echo JAVA_HOME="$JAVA_HOME"
 
 run-tests:
+  stage: test
   script:
     - echo "Verificando se Appium está rodando..."
     - if ! command -v appium &> /dev/null; then echo "Appium não está instalado! Abortando."; exit 1; fi
-    - echo "Iniciando Appium..."
+    - echo "Confirmando versão do Appium..."
+    - appium --version
     - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
+    - echo "Verificando conexão com o Appium..."
     - sleep 30  # Aguarda tempo suficiente para inicialização
     - echo "Verificando conexão com Appium..."
     - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/wd/hub/status
