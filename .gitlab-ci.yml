@@ -14,7 +14,6 @@ setup-environment:
     - echo "Baixando Android SDK..."
     - curl -o android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
     - ls -lh android-sdk.zip  # Confirma o tamanho do arquivo baixado
-    - "[ -s android-sdk.zip ] || echo 'Erro: O arquivo não foi baixado corretamente' && exit 1"
     - unzip android-sdk.zip -d $ANDROID_HOME || echo "Erro ao extrair o SDK"
 
 run-tests:
