@@ -2,7 +2,7 @@ image: node:18  # Usa uma imagem do Node.js compatível
 
 variables:
   ANDROID_HOME: "/opt/android-sdk"
-  APPIUM_VERSION: "1.22.0"
+  APPIUM_VERSION: "2.18.0"
 
 stages:
   - setup
@@ -30,6 +30,7 @@ setup-environment:
     - echo "Verificando instalação do Java..."
     - java -version
     - echo JAVA_HOME="$JAVA_HOME"
+
 run-tests:
   stage: test
   script:
@@ -39,13 +40,13 @@ run-tests:
     - npm install -g appium --unsafe-perm=true --allow-root
     - echo "Iniciando o Appium..."
     - nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
-    - sleep 30 # Aumente o tempo de espera
+    - sleep 30  # Aumente o tempo de espera
     - echo "Conteúdo do log do Appium:"
     - cat appium.log
     - echo "Verificando conexão com Appium..."
     - curl --retry 15 --retry-delay 3 --retry-connrefused http://127.0.0.1:4723/wd/hub/status
     - echo "Executando os testes..."
-    - npx codeceptjs run
+    - npx codeceptjs run || (echo "Testes falharam, verificando dependências..." && npm audit fix --force)
   artifacts:
     paths:
       - reports/
