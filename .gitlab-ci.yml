@@ -28,17 +28,15 @@ setup-environment:
 run-tests:
   stage: test
   script:
-    - echo "Verificando estrutura..."
-    - echo "Detectando IP dinâmico..."
-    - IP_ADDRESS=$(hostname -i)
-    - echo "Iniciando Appium com IP:"
-    - nohup appium --address "$IP_ADDRESS" --port 4723 > appium.log 2>&1 &
-    - sleep 20  # Aguarda 20 segundos para garantir que o Appium inicialize completamente
-    - echo "Verificando se Appium está rodando..."
-      - curl --retry 10 --retry-delay 3 --retry-connrefused http://$IP_ADDRESS:4723/wd/hub/status
-    - find /builds/${CI_PROJECT_PATH} -name "codecept.conf.js"
+    - echo "Verificando se Appium iniciou corretamente..."
+    - tail -20 appium.log  # Exibe os logs do Appium para ver possíveis erros
+    - echo "Iniciando Appium Server..."
+    - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
+    - sleep 30  # Aguarda tempo suficiente para inicialização
+    - echo "Verificando conexão com Appium..."
+    - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/wd/hub/status
     - echo "Executando testes no diretório correto..."
-    - cd /builds/${CI_PROJECT_PATH}  # Ajuste conforme necessário
+    - cd /builds/${CI_PROJECT_PATH}
     - npm install
     - npx codeceptjs run
   artifacts:
