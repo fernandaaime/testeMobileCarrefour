@@ -11,9 +11,9 @@ stages:
 setup-environment:
   stage: setup
   script:
-    - echo "Verificando instalação do Appium..."
+    - echo "Verificando instalando o Appium..."
     - npm install -g appium
-    - appium --version || echo "Appium não está instalado!"
+    - appium --version
     - echo "Instalando dependências..."
     - npm install -g codeceptjs  # Instala CodeceptJS globalmente
     - npm install  # Instala todas as dependências do projeto
