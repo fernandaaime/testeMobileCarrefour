@@ -26,7 +26,10 @@ run-tests:
   stage: test
   script:
     - echo "Verificando estrutura..."
-    - curl --retry 5 --retry-delay 5 --retry-connrefused http://localhost:4723/wd/hub/status
+    - appium --address 0.0.0.0 --port 4723 > /dev/null 2>&1 &
+    - sleep 10  # Aguarda 10 segundos para garantir que o Appium inicialize completamente
+    - echo "Verificando se Appium está rodando..."
+    - curl http://localhost:4723/wd/hub/status  # Confirma se o Appium está ativ
     - find /builds/${CI_PROJECT_PATH} -name "codecept.conf.js"
     - echo "Executando testes no diretório correto..."
     - cd /builds/${CI_PROJECT_PATH}  # Ajuste conforme necessário
