@@ -15,7 +15,7 @@ setup-environment:
     - npm install -g appium
     - appium --version || echo "Appium não está instalado!"
     - echo "Iniciando Appium com IP dinâmico..."
-    - appium --address 192.168.15.17 --port 4723
+    - appium --address $(hostname -i) --port 4723
     - echo "Instalando dependências..."
     - npm install -g codeceptjs  # Instala CodeceptJS globalmente
     - npm install  # Instala todas as dependências do projeto
