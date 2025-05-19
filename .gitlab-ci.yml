@@ -26,6 +26,8 @@ run-tests:
   stage: test
   script:
     - echo "Executando testes sem mudar de diretório..."
+    - cd /builds/${CI_PROJECT_PATH}/carrefour-mobile-e2e/pages
+    - ls -lh  
     - npm install
     - codeceptjs run
   artifacts:
