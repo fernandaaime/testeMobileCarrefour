@@ -25,10 +25,10 @@ setup-environment:
 run-tests:
   stage: test
   script:
-    - echo "Executando testes sem mudar de diretório..."
-    - cd /builds/${CI_PROJECT_PATH}/carrefour-mobile-e2e
-    - cd /builds/${CI_PROJECT_PATH}/carrefour-mobile-e2e/pages
-    - ls -lh  # Confirma que os arquivos de teste estão ali  
+    - echo "Verificando diretórios disponíveis no runner..."
+    - ls -lh /builds/${CI_PROJECT_PATH}
+    - echo "Verificando estrutura dentro do diretório do projeto..."
+    - ls -lh /builds/${CI_PROJECT_PATH}/carrefour-mobile-e2e || echo "Diretório carrefour-mobile-e2e não encontrado" 
     - npm install
     - npx codeceptjs run
   artifacts:
