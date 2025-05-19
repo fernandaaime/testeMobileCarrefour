@@ -12,25 +12,23 @@ setup-environment:
   stage: setup
   script:
     - echo "Instalando o Appium..."
-    - until npm install -g appium; do echo "Retrying Appium installation..."; sleep 5; done
-    - cat appium-install.log
-    - export PATH="$(npm root -g)/node_modules/.bin:$PATH"
+    - npm install -g appium | tee appium-install.log
+    - cat appium-install.log  # Exibe log para depuração
+    - export PATH=$(npm bin -g):$PATH
     - sleep 5
     - echo "Verificando instalação..."
+    - if ! command -v appium &> /dev/null; then echo "Appium não foi instalado! Abortando."; exit 1; fi
     - which appium
     - appium --version
-    - if ! command -v appium &> /dev/null; then echo "Appium não foi instalado! Abortando."; exit 1; fi
-    - echo "Verificando caminho do Appium..."
     - echo "Instalando dependências..."
     - apt-get update && apt-get install -y curl unzip openjdk-17-jdk libgbm1
     - npm install -g codeceptjs  # Instala CodeceptJS globalmente
     - npm install  # Instala todas as dependências do projeto
-    - apt-get update && apt-get install -y curl unzip openjdk-17-jdk
     - JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))  # Define JAVA_HOME dinamicamente
     - export JAVA_HOME
     - export PATH="$JAVA_HOME/bin:$PATH"
     - echo "Verificando instalação do Java..."
-    - java -version  # Confirma que o Java está instalado corretamente
+    - java -version
     - echo JAVA_HOME="$JAVA_HOME"
 
 run-tests:
@@ -42,8 +40,7 @@ run-tests:
     - which appium
     - appium --version
     - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
-    - echo "Verificando conexão com o Appium..."
-    - sleep 30  # Aguarda tempo suficiente para inicialização
+    - sleep 10  # Pequeno atraso para garantir inicialização correta
     - echo "Verificando conexão com Appium..."
     - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/wd/hub/status
     - echo "Executando os testes..."
