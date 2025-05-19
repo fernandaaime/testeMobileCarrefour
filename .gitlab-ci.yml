@@ -46,8 +46,11 @@ run-tests:
     - echo "Verificando conexão com Appium..."
     - curl http://127.0.0.1:4723/status || (echo "Appium não responde, reiniciando..." && pkill -f appium && nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 & sleep 10)
     - echo "Atualizando dependências..."
-    - npm audit fix
+    - npm audit fix --force
     - npm update
+    - echo "Reinstalando Appium-Chromedriver..."
+    - npm uninstall appium-chromedriver
+    - npm install appium-chromedriver --force
     - echo "Executando os testes..."
     - npx codeceptjs run || (echo "Testes falharam, verificando dependências..." && npm audit fix --force)
   artifacts:
