@@ -11,15 +11,16 @@ stages:
 setup-environment:
   stage: setup
   script:
-    - echo "instalando o Appium..."
-    - npm install -g appium | tee appium-install.log  # Salva log da instalação
-    - cat appium-install.log  # Exibe log da instalação para depuração
-    - export PATH=$(npm bin -g):$PATH
-    - sleep 5  
-    - echo "Verificando Instalação..."
-    - appium --version # Confirma que Appium foi instalado corretamente
+    - echo "Instalando o Appium..."
+    - until npm install -g appium; do echo "Retrying Appium installation..."; sleep 5; done
+    - cat appium-install.log
+    - export PATH="$(npm root -g)/node_modules/.bin:$PATH"
+    - sleep 5
+    - echo "Verificando instalação..."
+    - which appium
+    - appium --version
+    - if ! command -v appium &> /dev/null; then echo "Appium não foi instalado! Abortando."; exit 1; fi
     - echo "Verificando caminho do Appium..."
-    - which appium  # Confirma que o binário está acessível
     - echo "Instalando dependências..."
     - apt-get update && apt-get install -y curl unzip openjdk-17-jdk libgbm1
     - npm install -g codeceptjs  # Instala CodeceptJS globalmente
@@ -39,7 +40,6 @@ run-tests:
     - if ! command -v appium &> /dev/null; then echo "Appium não está instalado! Abortando."; exit 1; fi
     - echo "Confirmando versão do Appium..."
     - which appium
-    - npm install -g appium
     - appium --version
     - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
     - echo "Verificando conexão com o Appium..."
