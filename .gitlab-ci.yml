@@ -26,6 +26,7 @@ run-tests:
   stage: test
   script:
     - echo "Verificando estrutura..."
+    - curl --retry 5 --retry-delay 5 --retry-connrefused http://localhost:4723/wd/hub/status
     - find /builds/${CI_PROJECT_PATH} -name "codecept.conf.js"
     - echo "Executando testes no diretório correto..."
     - cd /builds/${CI_PROJECT_PATH}  # Ajuste conforme necessário
