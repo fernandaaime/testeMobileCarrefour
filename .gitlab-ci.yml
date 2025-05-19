@@ -50,7 +50,8 @@ run-tests:
     - npm update
     - echo "Reinstalando Appium-Chromedriver..."
     - npm uninstall appium-chromedriver
-    - npm install appium-chromedriver --force
+    - npm install appium-chromedriver@5.0.8 --force
+    - export APPIUM_SKIP_CHROMEDRIVER_INSTALL=1
     - echo "Executando os testes..."
     - npx codeceptjs run || (echo "Testes falharam, verificando dependências..." && npm audit fix --force)
   artifacts:
