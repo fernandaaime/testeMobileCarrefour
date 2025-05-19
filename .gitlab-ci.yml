@@ -13,9 +13,12 @@ setup-environment:
   script:
     - echo "Instalando dependências..."
     - apt-get update && apt-get install -y curl unzip
+    - echo "Baixando Android SDK..."
     - curl -o android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-11076709_latest.zip
-    - unzip android-sdk.zip -d $ANDROID_HOME
-    - ls -l $ANDROID_HOME/cmdline-tools/  # Verifica os arquivos extraídos
+    - ls -lh android-sdk.zip  # Verifica se o arquivo foi baixado corretamente
+    - file android-sdk.zip  # Confirma se o arquivo é um ZIP válido
+    - unzip android-sdk.zip -d $ANDROID_HOME || echo "Erro ao extrair o SDK"
+    - ls -l $ANDROID_HOME/cmdline-tools/  # Confirma que os arquivos foram extraídos
     - export PATH="$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools:$PATH"
     - chmod +x $ANDROID_HOME/cmdline-tools/bin/sdkmanager  # Ajusta permissões
     - sdkmanager --list  # Confirma se o sdkmanager está funcionando
