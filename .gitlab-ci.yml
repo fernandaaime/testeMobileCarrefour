@@ -15,6 +15,7 @@ setup-environment:
     - npm install -g appium | tee appium-install.log  # Salva log da instalação
     - cat appium-install.log  # Exibe log da instalação para depuração
     - export PATH=$(npm bin -g):$PATH
+    - sleep 5  
     - echo "Verificando Instalação..."
     - appium --version # Confirma que Appium foi instalado corretamente
     - echo "Verificando caminho do Appium..."
@@ -37,6 +38,7 @@ run-tests:
     - echo "Verificando se Appium está rodando..."
     - if ! command -v appium &> /dev/null; then echo "Appium não está instalado! Abortando."; exit 1; fi
     - echo "Confirmando versão do Appium..."
+    - which appium
     - appium --version
     - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
     - echo "Verificando conexão com o Appium..."
