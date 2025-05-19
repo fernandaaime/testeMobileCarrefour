@@ -48,4 +48,4 @@ run-tests:
   artifacts:
     paths:
       - reports/
-    when: always
+    when: always 
