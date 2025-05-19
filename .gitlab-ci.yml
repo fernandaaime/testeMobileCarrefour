@@ -14,7 +14,7 @@ setup-environment:
     - echo "instalando o Appium..."
     - npm install -g appium | tee appium-install.log  # Salva log da instalação
     - cat appium-install.log  # Exibe log da instalação para depuração
-    - export PATH="$(npm root -g)/appium/bin:$PATH"  # Garante que Appium esteja no PATH
+    - export PATH=$(npm bin -g):$PATH
     - echo "Verificando Instalação..."
     - appium --version # Confirma que Appium foi instalado corretamente
     - echo "Verificando caminho do Appium..."
