@@ -12,7 +12,8 @@ setup-environment:
   stage: setup
   script:
     - echo "Instalando dependências..."
-    - npm install  # Instala CodeceptJS e dependências
+    - npm install -g codeceptjs  # Instala CodeceptJS globalmente
+    - npm install  # Instala todas as dependências do projeto
     - apt-get update && apt-get install -y curl unzip openjdk-17-jdk
     - JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))  # Define JAVA_HOME dinamicamente
     - export JAVA_HOME
@@ -25,10 +26,12 @@ setup-environment:
 run-tests:
   stage: test
   script:
-    - echo "Iniciando Appium Server..."
-    - appium --address 0.0.0.0 --port 4723 > /dev/null 2>&1 &
-    - echo "Executando testes com CodeceptJS..."
-    - npx codeceptjs run
+    - echo "Navegando para o diretório do projeto..."
+    - cd repo
+    - echo "Instalando dependências..."
+    - npm install
+    - echo "Executando testes..."
+    - codeceptjs run
   artifacts:
     paths:
       - reports/
