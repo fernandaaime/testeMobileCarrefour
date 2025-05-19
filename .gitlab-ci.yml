@@ -12,6 +12,7 @@ setup-environment:
   stage: setup
   script:
     - echo "Verificando instalação do Appium..."
+    - npm install -g appium
     - appium --version || echo "Appium não está instalado!"
     - echo "Instalando dependências..."
     - npm install -g codeceptjs  # Instala CodeceptJS globalmente
@@ -28,10 +29,10 @@ run-tests:
   stage: test
   script:
     - echo "Verificando estrutura..."
-    - appium --address 0.0.0.0 --port 4723 > /dev/null 2>&1 &
-    - sleep 10  # Aguarda 10 segundos para garantir que o Appium inicialize completamente
+    - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
+    - sleep 20  # Aguarda 20 segundos para garantir que o Appium inicialize completamente
     - echo "Verificando se Appium está rodando..."
-    - curl http://localhost:4723/wd/hub/status  # Confirma se o Appium está ativ
+    - curl --retry 10 --retry-delay 3 --retry-connrefused http://localhost:4723/wd/hub/status
     - find /builds/${CI_PROJECT_PATH} -name "codecept.conf.js"
     - echo "Executando testes no diretório correto..."
     - cd /builds/${CI_PROJECT_PATH}  # Ajuste conforme necessário
