@@ -39,6 +39,7 @@ run-tests:
     - if ! command -v appium &> /dev/null; then echo "Appium não está instalado! Abortando."; exit 1; fi
     - echo "Confirmando versão do Appium..."
     - which appium
+    - npm install -g appium
     - appium --version
     - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
     - echo "Verificando conexão com o Appium..."
