@@ -25,12 +25,11 @@ setup-environment:
 run-tests:
   stage: test
   script:
-    - echo "Navegando para o diretório correto..."
-    - cd /builds/${CI_PROJECT_PATH}/pages  # Agora apontamos corretamente para `pages`
-    - ls -lh  # Confirma que os arquivos estão ali
+    - echo "Verificando estrutura..."
+    - find /builds/${CI_PROJECT_PATH} -name "codecept.conf.js"
+    - echo "Executando testes no diretório correto..."
+    - cd /builds/${CI_PROJECT_PATH}  # Ajuste conforme necessário
     - npm install
-    - npx codeceptjs --version  # Confirma que CodeceptJS está instalado
-    - echo "Executando testes..."
     - npx codeceptjs run
   artifacts:
     paths:
