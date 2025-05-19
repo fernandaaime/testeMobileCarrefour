@@ -13,7 +13,10 @@ setup-environment:
   script:
     - echo "Verificando instalando o Appium..."
     - if ! command -v appium &> /dev/null; then echo "Appium não encontrado! Instalando..."; npm install -g appium; fi
+    - echo "Iniciando Appium..."
     - appium --version
+    - echo "Verificando caminho do Appium..."
+    - which appium  # Confirma que o binário está acessível
     - echo "Instalando dependências..."
     - npm install -g codeceptjs  # Instala CodeceptJS globalmente
     - npm install  # Instala todas as dependências do projeto
@@ -28,18 +31,13 @@ setup-environment:
 run-tests:
   script:
     - echo "Verificando se Appium está rodando..."
-    - ps aux | grep appium  # Verifica se o processo do Appium está ativo
-    - echo "Iniciando Appium Server..."
-    - nohup appium --address 0.0.0.0 --port 4723 > /builds/${CI_PROJECT_PATH}/appium.log 2>&1 &
+    - if ! command -v appium &> /dev/null; then echo "Appium não está instalado! Abortando."; exit 1; fi
+    - echo "Iniciando Appium..."
+    - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
     - sleep 30  # Aguarda tempo suficiente para inicialização
-    - echo "Verificando se o arquivo de log do Appium foi criado..."
-    - ls -lh /builds/${CI_PROJECT_PATH}/appium.log  # Confirma que o log existe
-    - tail -20 /builds/${CI_PROJECT_PATH}/appium.log  # Exibe os últimos logs para verificar possíveis erros
     - echo "Verificando conexão com Appium..."
     - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/wd/hub/status
-    - echo "Executando testes no diretório correto..."
-    - cd /builds/${CI_PROJECT_PATH}
-    - npm install
+    - echo "Executando os testes..."
     - npx codeceptjs run
   artifacts:
     paths:
