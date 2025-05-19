@@ -14,11 +14,12 @@ setup-environment:
     - echo "Baixando Android SDK..."
     - curl -o android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
     - ls -lh android-sdk.zip  # Confirma o tamanho do arquivo baixado
-    - mkdir -p $ANDROID_HOME/cmdline-tools/latest  # Garante o diretório correto
-    - unzip android-sdk.zip -d $ANDROID_HOME/cmdline-tools/latest || echo "Erro ao extrair o SDK"
-    - ls -l $ANDROID_HOME/cmdline-tools/latest/  # Confirma que os arquivos foram extraídos corretamente
+    - mkdir -p $ANDROID_HOME/cmdline-tools
+    - unzip android-sdk.zip -d $ANDROID_HOME/cmdline-tools || echo "Erro ao extrair o SDK"
+    - mv $ANDROID_HOME/cmdline-tools/cmdline-tools $ANDROID_HOME/cmdline-tools/latest  # Corrige a estrutura
+    - ls -l $ANDROID_HOME/cmdline-tools/latest/  # Confirma o ajuste do diretório
     - export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
-    - chmod +x $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager  # Ajusta permissões
+    - chmod +x $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager
     - sdkmanager --list  # Confirma se o sdkmanager está funcionando
 
 
