@@ -29,7 +29,7 @@ run-tests:
     - cd /builds/${CI_PROJECT_PATH}/carrefour-mobile-e2e/pages
     - ls -lh  
     - npm install
-    - codeceptjs run
+    - npx codeceptjs run
   artifacts:
     paths:
       - reports/
