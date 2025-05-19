@@ -40,11 +40,14 @@ run-tests:
     - npm install -g appium --unsafe-perm=true --allow-root
     - echo "Iniciando o Appium..."
     - nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
-    - sleep 30  # Aumente o tempo de espera
+    - sleep 30  # Aumente o tempo de espera para garantir que o Appium inicie corretamente
     - echo "Conteúdo do log do Appium:"
     - cat appium.log
     - echo "Verificando conexão com Appium..."
-    - curl --retry 15 --retry-delay 3 --retry-connrefused http://127.0.0.1:4723/wd/hub/status
+    - curl http://127.0.0.1:4723/status || (echo "Appium não responde, reiniciando..." && pkill -f appium && nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 & sleep 10)
+    - echo "Atualizando dependências..."
+    - npm audit fix
+    - npm update
     - echo "Executando os testes..."
     - npx codeceptjs run || (echo "Testes falharam, verificando dependências..." && npm audit fix --force)
   artifacts:
