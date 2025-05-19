@@ -11,9 +11,9 @@ stages:
 setup-environment:
   stage: setup
   script:
-    - echo "Verificando instalando o Appium..."
+    - echo "instalando o Appium..."
     - npm install -g appium
-    - echo "Iniciando Appium..."
+    - echo "Verificando Instalação..."
     - appium --version # Confirma que Appium foi instalado corretamente
     - echo "Verificando caminho do Appium..."
     - which appium  # Confirma que o binário está acessível
