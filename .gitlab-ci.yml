@@ -33,8 +33,5 @@ run-tests:
       - reports/
     when: always
 
-     artifacts:
-    paths:
-      - reports/
-    when: always
+    
 
