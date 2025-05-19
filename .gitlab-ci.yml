@@ -11,21 +11,11 @@ stages:
 setup-environment:
   stage: setup
   script:
-    - echo "Instalando dependências..."
-    - apt-get update && apt-get install -y curl unzip
     - echo "Baixando Android SDK..."
     - curl -o android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-11076709_latest.zip
     - ls -lh android-sdk.zip  # Confirma o tamanho do arquivo baixado
-    - if [ ! -s android-sdk.zip ]; then echo "Erro: O arquivo não foi baixado corretamente"; exit 1; fi  # Verifica se o arquivo ZIP não está vazio
+    - "[ -s android-sdk.zip ] || echo 'Erro: O arquivo não foi baixado corretamente' && exit 1"
     - unzip android-sdk.zip -d $ANDROID_HOME || echo "Erro ao extrair o SDK"
-    - ls -l $ANDROID_HOME/cmdline-tools/  # Confirma que os arquivos foram extraídos corretamente
-    - export PATH="$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools:$PATH"
-    - chmod +x $ANDROID_HOME/cmdline-tools/bin/sdkmanager  # Ajusta permissões
-    - sdkmanager --list  # Confirma se o sdkmanager está funcionando
-    - sdkmanager "platforms;android-30" "build-tools;30.0.3" "platform-tools"
-    - echo "Instalando Appium..."
-    - npm install -g appium@$APPIUM_VERSION
-    - appium --version
 
 run-tests:
   stage: test
