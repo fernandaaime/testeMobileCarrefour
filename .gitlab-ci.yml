@@ -12,6 +12,7 @@ setup-environment:
   stage: setup
   script:
     - echo "Instalando dependências..."
+    - npm install  # Instala CodeceptJS e dependências
     - apt-get update && apt-get install -y curl unzip openjdk-17-jdk
     - JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))  # Define JAVA_HOME dinamicamente
     - export JAVA_HOME
