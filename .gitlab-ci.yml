@@ -59,13 +59,15 @@ setup-environment:
 run-tests:
   stage: test
   script:
-    - export PATH=$(npm bin -g):$PATH # Garante que comandos globais como 'appium' e 'npx' funcionem
-    - export ANDROID_HOME="/opt/android-sdk" # Recria as variáveis de ambiente necessárias
-    - export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools" # Adiciona PATHs novamente
+    # --- INÍCIO: RE-EXPORTAR VARIÁVEIS DE AMBIENTE ---
+    - export ANDROID_HOME="/opt/android-sdk" # Recrie a variável ANDROID_HOME
+    - export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools" # Re-adicione os caminhos do SDK ao PATH
+    - export PATH=$(npm bin -g):$PATH # Mantenha esta linha para comandos npm globais e npx
+    # --- FIM: RE-EXPORTAR VARIÁVEIS DE AMBIENTE ---
 
     - echo "Iniciando o emulador Android em segundo plano..."
-    - emulator -avd test_emulator -no-audio -no-window -gpu off & # Inicia o emulador. '-gpu off' para ambientes sem GUI.
-    - adb wait-for-device # Espera até que o emulador esteja online
+    - emulator -avd test_emulator -no-audio -no-window -gpu off &
+    - adb wait-for-device
     - adb shell input keyevent 82 # Desbloqueia a tela do emulador (opcional, mas bom)
 
     - echo "Instalando dependências do projeto (caso não tenha persistido do setup)..."
