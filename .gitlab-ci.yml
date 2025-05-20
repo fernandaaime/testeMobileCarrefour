@@ -22,7 +22,7 @@ setup-environment:
     - appium --version
     - echo "Instalando dependências..."
     - apt-get update && apt-get install -y curl unzip openjdk-17-jdk libgbm1
-    - npm install -g codeceptjs  # Instala CodeceptJS globalmente
+    - npm install --save-dev codeceptjs
     - npm install  # Instala todas as dependências do projeto
     - JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))  # Define JAVA_HOME dinamicamente
     - export JAVA_HOME
