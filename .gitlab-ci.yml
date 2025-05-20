@@ -55,29 +55,53 @@ setup-environment:
     - java -version
     - echo JAVA_HOME="$JAVA_HOME"
 
-# No seu run-tests, garanta que o emulador seja iniciado ANTES do Appium
 run-tests:
-  stage: test
+  stage: test # Mantenha o estágio test
   script:
-    # --- INÍCIO: DEPURANDO O PATH E DIRETÓRIOS ---
-    - echo "Depurando o PATH e diretórios do Android SDK..."
-    - export ANDROID_HOME="/opt/android-sdk" # Recrie a variável ANDROID_HOME
-    - export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools" # Re-adicione os caminhos do SDK ao PATH
-    - export PATH=$(npm bin -g):$PATH # Mantenha esta linha para comandos npm globais e npx
+    - echo "Instalando dependências básicas (curl, unzip, Java)..."
+    - apt-get update && apt-get install -y curl unzip openjdk-17-jdk libgbm1
+    - JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java)))) # Define JAVA_HOME dinamicamente
+    - export JAVA_HOME
+    - export PATH="$JAVA_HOME/bin:$PATH" # Garante que Java esteja no PATH
+    - echo "Verificando instalação do Java..."
+    - java -version
+    - echo JAVA_HOME="$JAVA_HOME"
 
-    - echo "PATH atual $PATH" # Mostre o PATH após suas exportações
-    - echo "Verificando se os diretórios do SDK existem e têm conteúdo:"
-    - ls -l /opt/android-sdk/cmdline-tools/latest/bin/emulator # Verifica o executável 'emulator'
-    - ls -l /opt/android-sdk/platform-tools/adb # Verifica o executável 'adb'
-    - echo "DEPURANDO O PATH E DIRETÓRIOS.."
+    # --- INÍCIO: Configuração do Android SDK e Emulador (AGORA NO run-tests) ---
+    - echo "Baixando e extraindo Android Command-Line Tools..."
+    - mkdir -p /opt/android-sdk
+    # Use a URL exata que você testou e funcionou, ou a mais recente que encontrar
+    - wget -q https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O android-sdk-tools.zip
+    - unzip android-sdk-tools.zip -d /opt/android-sdk/cmdline-tools
+    - rm android-sdk-tools.zip
+    - mv /opt/android-sdk/cmdline-tools/cmdline-tools /opt/android-sdk/cmdline-tools/latest
+
+    - export ANDROID_HOME="/opt/android-sdk"
+    - export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
+
+    - echo "Aceitando licenças do Android SDK..."
+    - yes | sdkmanager --licenses || true
+
+    - echo "Instalando Plataforma Android e Imagem do Sistema (API 30 como exemplo)..."
+    - sdkmanager "platforms;android-30" "system-images;android-30;google_apis;x86" "build-tools;30.0.3"
+
+    - echo "Criando AVD (Android Virtual Device) para o emulador..."
+    - echo "no" | avdmanager create avd --name test_emulator --package "system-images;android-30;google_apis;x86" --tag "google_apis" --abi "x86" || true
+    # --- FIM: Configuração do Android SDK e Emulador ---
+
+    - echo "Instalando dependências do projeto..."
+    - npm install
+
+    - echo "Garantindo que o Appium esteja instalado globalmente..."
+    - npm install -g appium --unsafe-perm=true --allow-root
+    - export PATH=$(npm bin -g):$PATH # Corrigido: Esta linha deve funcionar após 'npm install -g'
+
+    - echo "PATH atual $PATH" # Re-verifique o PATH
 
     - echo "Iniciando o emulador Android em segundo plano..."
     - emulator -avd test_emulator -no-audio -no-window -gpu off &
     - adb wait-for-device
     - adb shell input keyevent 82 # Desbloqueia a tela do emulador (opcional, mas bom)
-
-    - echo "Instalando dependências do projeto (caso não tenha persistido do setup)..."
-    - npm install # Mantido aqui para garantir, se o estágio "setup" não persistir node_modules
 
     - echo "Iniciando o Appium..."
     - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
