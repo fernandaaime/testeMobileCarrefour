@@ -33,11 +33,11 @@ setup-environment:
 run-tests: 
   stage: test 
   script: 
+    - echo "Instalando Dependencia"
+    - npm install 
     - echo "Garantindo que o Appium esteja instalado..." 
     - npm install -g appium --unsafe-perm=true --allow-root 
     - export PATH=$(npm bin -g):$PATH 
-    - echo "Instalando Dependencia"
-    - npm install -g codeceptjs@3.7.3
     - echo "Verificando se Appium está rodando..." 
     - if ! command -v appium &> /dev/null; then echo "Appium não está instalado! Abortando."; exit 1; fi 
     - echo "Confirmando versão do Appium..." 
