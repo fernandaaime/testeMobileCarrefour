@@ -5,7 +5,7 @@ exports.config = {
   output: './output',
   helpers: {
     Appium: {
-      host: 'localhost',
+      host: '127.0.0.1',
       port: 4723,
       path: '/',
       protocol: 'http',
