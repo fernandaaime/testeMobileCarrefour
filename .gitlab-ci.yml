@@ -65,11 +65,11 @@ run-tests:
     - export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools" # Re-adicione os caminhos do SDK ao PATH
     - export PATH=$(npm bin -g):$PATH # Mantenha esta linha para comandos npm globais e npx
 
-    - echo "PATH atual: $PATH" # Mostre o PATH após suas exportações
+    - echo "PATH atual $PATH" # Mostre o PATH após suas exportações
     - echo "Verificando se os diretórios do SDK existem e têm conteúdo:"
     - ls -l /opt/android-sdk/cmdline-tools/latest/bin/emulator # Verifica o executável 'emulator'
     - ls -l /opt/android-sdk/platform-tools/adb # Verifica o executável 'adb'
-    - echo "--- FIM: DEPURANDO O PATH E DIRETÓRIOS ---"
+    - echo "DEPURANDO O PATH E DIRETÓRIOS.."
 
     - echo "Iniciando o emulador Android em segundo plano..."
     - emulator -avd test_emulator -no-audio -no-window -gpu off &
