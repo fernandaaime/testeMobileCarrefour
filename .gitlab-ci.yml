@@ -47,7 +47,8 @@ run-tests:
     - echo "Verificando conexão com Appium..." 
     - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/status
     - echo "Executando os testes..." 
-    - ./node_modules/.bin/codeceptjs run
+    - npm run test
+
  
   artifacts: 
       paths: 
