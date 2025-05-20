@@ -4,7 +4,7 @@
   "description": "Testes automatizados mobile com CodeceptJS + Appium + Allure",
   "main": "codecept.conf.js",
   "scripts": {
-    "test": "npx codeceptjs run --steps",
+    "test": "codeceptjs run --steps",
     "allure:generate": "npx allure generate output --clean",
     "allure:open": "npx allure open"
   },
