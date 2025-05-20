@@ -11,47 +11,77 @@ stages:
 setup-environment:
   stage: setup
   script:
-    - echo "Instalando o Appium..."
-    - npm install -g appium | tee appium-install.log
-    - cat appium-install.log  # Exibe log para depuração
-    - export PATH=$(npm bin -g):$PATH
-    - sleep 5
-    - echo "Verificando instalação..."
+    - echo "Instalando o Appium (globalmente)..."
+    - npm install -g appium --unsafe-perm=true --allow-root | tee appium-install.log
+    - cat appium-install.log # Exibe log para depuração
+    - export PATH=$(npm bin -g):$PATH # Adiciona npm bin ao PATH para comandos globais
+
+    - echo "Verificando instalação do Appium..."
     - if ! command -v appium &> /dev/null; then echo "Appium não foi instalado! Abortando."; exit 1; fi
     - which appium
     - appium --version
-    - echo "Instalando dependências..."
+
+    - echo "Instalando dependências básicas (curl, unzip, Java)..."
     - apt-get update && apt-get install -y curl unzip openjdk-17-jdk libgbm1
-    - npm install  # Instala todas as dependências do projeto
-    - JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))  # Define JAVA_HOME dinamicamente
+
+    # --- INÍCIO: Configuração do Android SDK e Emulador ---
+    - echo "Baixando e extraindo Android Command-Line Tools..."
+    - mkdir -p /opt/android-sdk # Cria o diretório para o SDK
+    - wget -q https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O android-sdk-tools.zip # Versão mais recente
+    - unzip android-sdk-tools.zip -d /opt/android-sdk/cmdline-tools
+    - rm android-sdk-tools.zip
+
+    - mv /opt/android-sdk/cmdline-tools/cmdline-tools /opt/android-sdk/cmdline-tools/latest # Ajusta a estrutura de diretórios
+    - export ANDROID_HOME="/opt/android-sdk"
+    - export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools" # Adiciona ao PATH
+
+    - echo "Aceitando licenças do Android SDK..."
+    - yes | sdkmanager --licenses || true # '|| true' para não falhar se já aceitas ou houver warnings
+
+    - echo "Instalando Plataforma Android e Imagem do Sistema (API 30 como exemplo)..."
+    - sdkmanager "platforms;android-30" "system-images;android-30;google_apis;x86" "build-tools;30.0.3" # Instala SDK, imagem e build tools
+
+    - echo "Criando AVD (Android Virtual Device) para o emulador..."
+    - echo "no" | avdmanager create avd --name test_emulator --package "system-images;android-30;google_apis;x86" --tag "google_apis" --abi "x86" || true # '|| true' para não falhar se já existir
+    # --- FIM: Configuração do Android SDK e Emulador ---
+
+    - echo "Instalando dependências do projeto (do package.json)..."
+    - npm install # Instala todas as dependências do projeto (CodeceptJS, etc.)
+
+    - JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java)))) # Define JAVA_HOME dinamicamente
     - export JAVA_HOME
-    - export PATH="$JAVA_HOME/bin:$PATH"
+    - export PATH="$JAVA_HOME/bin:$PATH" # Garante que Java esteja no PATH
     - echo "Verificando instalação do Java..."
     - java -version
     - echo JAVA_HOME="$JAVA_HOME"
 
-run-tests: 
-  stage: test 
-  script: 
-    - echo "Instalando Dependencia"
-    - npm install 
-    - echo "Garantindo que o Appium esteja instalado..." 
-    - npm install -g appium --unsafe-perm=true --allow-root 
-    - export PATH=$(npm bin -g):$PATH 
-    - echo "Verificando se Appium está rodando..." 
-    - if ! command -v appium &> /dev/null; then echo "Appium não está instalado! Abortando."; exit 1; fi 
-    - echo "Confirmando versão do Appium..." 
-    - which appium 
-    - appium --version 
-    - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 & 
-    - sleep 10 # Pequeno atraso para garantir inicialização correta 
-    - echo "Verificando conexão com Appium..." 
-    - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/status
-    - echo "Executando os testes..." 
-    - npm run test
+# No seu run-tests, garanta que o emulador seja iniciado ANTES do Appium
+run-tests:
+  stage: test
+  script:
+    - export PATH=$(npm bin -g):$PATH # Garante que comandos globais como 'appium' e 'npx' funcionem
+    - export ANDROID_HOME="/opt/android-sdk" # Recria as variáveis de ambiente necessárias
+    - export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools" # Adiciona PATHs novamente
 
- 
-  artifacts: 
-      paths: 
-        - reports/ 
-  when: always
+    - echo "Iniciando o emulador Android em segundo plano..."
+    - emulator -avd test_emulator -no-audio -no-window -gpu off & # Inicia o emulador. '-gpu off' para ambientes sem GUI.
+    - adb wait-for-device # Espera até que o emulador esteja online
+    - adb shell input keyevent 82 # Desbloqueia a tela do emulador (opcional, mas bom)
+
+    - echo "Instalando dependências do projeto (caso não tenha persistido do setup)..."
+    - npm install # Mantido aqui para garantir, se o estágio "setup" não persistir node_modules
+
+    - echo "Iniciando o Appium..."
+    - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 &
+    - sleep 25 # Aumentei para 25 segundos para dar tempo do emulador e Appium iniciarem
+    - echo "--- Conteúdo do log do Appium ---"
+    - cat appium.log
+    - echo "--- Fim do log do Appium ---"
+    - echo "Verificando conexão com Appium via curl..."
+    - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/status
+    - echo "Executando os testes..."
+    - npm run test
+  artifacts:
+    paths:
+      - reports/
+    when: always
