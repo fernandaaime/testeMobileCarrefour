@@ -43,10 +43,10 @@ run-tests:
     - echo "Confirmando versão do Appium..." 
     - which appium 
     - appium --version 
-    - nohup appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 & 
+    - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 & 
     - sleep 10 # Pequeno atraso para garantir inicialização correta 
     - echo "Verificando conexão com Appium..." 
-    - curl --retry 15 --retry-delay 3 --retry-connrefused http://127.0.0.1:4723/status
+    - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/status
     - echo "Executando os testes..." 
     - npm run test
 
