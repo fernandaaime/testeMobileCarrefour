@@ -59,11 +59,17 @@ setup-environment:
 run-tests:
   stage: test
   script:
-    # --- INÍCIO: RE-EXPORTAR VARIÁVEIS DE AMBIENTE ---
+    # --- INÍCIO: DEPURANDO O PATH E DIRETÓRIOS ---
+    - echo "Depurando o PATH e diretórios do Android SDK..."
     - export ANDROID_HOME="/opt/android-sdk" # Recrie a variável ANDROID_HOME
     - export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools" # Re-adicione os caminhos do SDK ao PATH
     - export PATH=$(npm bin -g):$PATH # Mantenha esta linha para comandos npm globais e npx
-    # --- FIM: RE-EXPORTAR VARIÁVEIS DE AMBIENTE ---
+
+    - echo "PATH atual: $PATH" # Mostre o PATH após suas exportações
+    - echo "Verificando se os diretórios do SDK existem e têm conteúdo:"
+    - ls -l /opt/android-sdk/cmdline-tools/latest/bin/emulator # Verifica o executável 'emulator'
+    - ls -l /opt/android-sdk/platform-tools/adb # Verifica o executável 'adb'
+    - echo "--- FIM: DEPURANDO O PATH E DIRETÓRIOS ---"
 
     - echo "Iniciando o emulador Android em segundo plano..."
     - emulator -avd test_emulator -no-audio -no-window -gpu off &
