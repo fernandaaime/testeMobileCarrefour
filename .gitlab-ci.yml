@@ -46,9 +46,10 @@ run-tests:
     - nohup appium --address 0.0.0.0 --port 4723 > appium.log 2>&1 & 
     - sleep 10 # Pequeno atraso para garantir inicialização correta 
     - echo "Verificando conexão com Appium..." 
-    - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/wd/hub/status 
+    - curl --retry 15 --retry-delay 3 --retry-connrefused http://localhost:4723/status
     - echo "Executando os testes..." 
-    - npx codeceptjs run 
+    - ./node_modules/.bin/codeceptjs run
+ 
   artifacts: 
       paths: 
         - reports/ 
