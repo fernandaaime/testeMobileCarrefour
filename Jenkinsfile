@@ -1,24 +1,17 @@
 pipeline {
     agent any
+    triggers {
+        gitlab(triggerOnPush: true, triggerOnMergeRequest: true) // Rodar automaticamente ao fazer push ou merge
+    }
     stages {
-        stage('Checkout') {
+        stage('Install Dependencies') {
             steps {
-                git 'https://gitlab.com/FernandaAime25/carrefour-mobile'
+                sh 'npm install' // Instala todas as dependências do projeto
             }
         }
-        stage('Build') {
+        stage('Run Tests') {
             steps {
-                sh 'mvn clean package'  // Ou outro comando de build
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'  // Ou comandos para rodar testes automatizados
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh './deploy.sh'  // Script de implantação, se necessário
+                sh 'npx codeceptjs run --steps' // Executa os testes com CodeceptJS
             }
         }
     }
