@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://gitlab.com/seu-repositorio.git'
+                git 'https://gitlab.com/FernandaAime25/carrefour-mobile'
             }
         }
         stage('Build') {
