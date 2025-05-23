@@ -1,0 +1,234 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1748011929665' stop='1748012081700'>
+    <name>Testes Mobile:</name>
+    <title>Testes Mobile:</title>
+    <test-cases>
+        <test-case start='1748011929667' status='failed' stop='1748011944586'>
+            <name>Cadastro com dados válidos</name>
+            <title>Cadastro com dados válidos</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748011934574' status='failed' stop='1748011944582'>
+                    <name>I wait for element "//android.widget.TextView[@text="SIGN UP"]", 10</name>
+                    <title>I wait for element "//android.widget.TextView[@text="SIGN UP"]", 10</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Main session - Last Seen Screenshot' source='8c8bc5bf-ec59-4493-a17a-e515b626a061-attachment.png' type='image/png' size='1378554'/>
+            </attachments>
+            <failure>
+                <message>element (//android.widget.TextView[@text="SIGN UP"]) still not present on page after 10 sec</message>
+                <stack-trace>Error: element (//android.widget.TextView[@text="SIGN UP"]) still not present on page after 10 sec
+                    at file:///C:/Users/aime_/carrefour-mobile/node_modules/webdriverio/build/commands/browser/waitUntil.js:39:23
+                    at async Browser.wrapCommandFn (file:///C:/Users/aime_/carrefour-mobile/node_modules/@wdio/utils/build/shim.js:90:29)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1748011947267' status='failed' stop='1748011960862'>
+            <name>Login com sucesso</name>
+            <title>Login com sucesso</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748011950850' status='failed' stop='1748011960861'>
+                    <name>I wait for element "//android.widget.TextView[@text="Login"]", 10</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Login"]", 10</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Main session - Last Seen Screenshot' source='9fe3e00f-dbae-452f-88c8-f2d421fbafb4-attachment.png' type='image/png' size='1378554'/>
+            </attachments>
+            <failure>
+                <message>element (//android.widget.TextView[@text="Login"]) still not present on page after 10 sec</message>
+                <stack-trace>Error: element (//android.widget.TextView[@text="Login"]) still not present on page after 10 sec
+                    at file:///C:/Users/aime_/carrefour-mobile/node_modules/webdriverio/build/commands/browser/waitUntil.js:39:23
+                    at async Browser.wrapCommandFn (file:///C:/Users/aime_/carrefour-mobile/node_modules/@wdio/utils/build/shim.js:90:29)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1748011963930' status='failed' stop='1748011982513'>
+            <name>Login com menos de 8 caracteres</name>
+            <title>Login com menos de 8 caracteres</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748011967505' status='failed' stop='1748011982513'>
+                    <name>I wait for element "//android.widget.TextView[@text="Login"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Login"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Main session - Last Seen Screenshot' source='72fe301a-ee7c-4784-810e-bbba2419807e-attachment.png' type='image/png' size='1378704'/>
+            </attachments>
+            <failure>
+                <message>element (//android.widget.TextView[@text="Login"]) still not present on page after 15 sec</message>
+                <stack-trace>Error: element (//android.widget.TextView[@text="Login"]) still not present on page after 15 sec
+                    at file:///C:/Users/aime_/carrefour-mobile/node_modules/webdriverio/build/commands/browser/waitUntil.js:39:23
+                    at async Browser.wrapCommandFn (file:///C:/Users/aime_/carrefour-mobile/node_modules/@wdio/utils/build/shim.js:90:29)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1748011985313' status='failed' stop='1748012004165'>
+            <name>Preenchimento de formulário</name>
+            <title>Preenchimento de formulário</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748011989154' status='failed' stop='1748012004164'>
+                    <name>I wait for element "//android.widget.EditText[@content-desc="text-input"]", 15</name>
+                    <title>I wait for element "//android.widget.EditText[@content-desc="text-input"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Main session - Last Seen Screenshot' source='5aa2f4dc-98b2-45e1-b199-572c1508f39d-attachment.png' type='image/png' size='1378924'/>
+            </attachments>
+            <failure>
+                <message>element (//android.widget.EditText[@content-desc="text-input"]) still not present on page after 15 sec</message>
+                <stack-trace>Error: element (//android.widget.EditText[@content-desc="text-input"]) still not present on page after 15 sec
+                    at file:///C:/Users/aime_/carrefour-mobile/node_modules/webdriverio/build/commands/browser/waitUntil.js:39:23
+                    at async Browser.wrapCommandFn (file:///C:/Users/aime_/carrefour-mobile/node_modules/@wdio/utils/build/shim.js:90:29)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1748012006990' status='failed' stop='1748012025608'>
+            <name>Navegação entre abas</name>
+            <title>Navegação entre abas</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748012010596' status='failed' stop='1748012025608'>
+                    <name>I wait for element "//android.widget.TextView[@text="Swipe"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Swipe"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Main session - Last Seen Screenshot' source='80a6cbd9-0535-4b00-bac8-b9038e334a7f-attachment.png' type='image/png' size='1378994'/>
+            </attachments>
+            <failure>
+                <message>element (//android.widget.TextView[@text="Swipe"]) still not present on page after 15 sec</message>
+                <stack-trace>Error: element (//android.widget.TextView[@text="Swipe"]) still not present on page after 15 sec
+                    at file:///C:/Users/aime_/carrefour-mobile/node_modules/webdriverio/build/commands/browser/waitUntil.js:39:23
+                    at async Browser.wrapCommandFn (file:///C:/Users/aime_/carrefour-mobile/node_modules/@wdio/utils/build/shim.js:90:29)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1748012028678' status='passed' stop='1748012041595'>
+            <name>Funcionalidade Scroll Horizontal</name>
+            <title>Funcionalidade Scroll Horizontal</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1748012042026' status='failed' stop='1748012046300'>
+            <name>Acessibilidade de suporte</name>
+            <title>Acessibilidade de suporte</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748012045702' status='failed' stop='1748012046300'>
+                    <name>I tap "//android.widget.TextView[@text="Home"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Home"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Main session - Last Seen Screenshot' source='29841a5c-f5a4-4377-916e-e6f42120ea98-attachment.png' type='image/png' size='1378994'/>
+            </attachments>
+            <failure>
+                <message>Request failed with status code 404</message>
+                <stack-trace>AxiosError: Request failed with status code 404
+                    at settle (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\node_modules\axios\dist\node\axios.cjs:2031:12)
+                    at IncomingMessage.handleStreamEnd (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\node_modules\axios\dist\node\axios.cjs:3148:11)
+                    at IncomingMessage.emit (node:events:530:35)
+                    at IncomingMessage.emit (node:domain:489:12)
+                    at endReadableNT (node:internal/streams/readable:1698:12)
+                    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+                    at Axios.request (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\node_modules\axios\dist\node\axios.cjs:4258:41)
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1748012049355' status='failed' stop='1748012053475'>
+            <name>Acessibilidade para aba Webview</name>
+            <title>Acessibilidade para aba Webview</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748012052935' status='failed' stop='1748012053475'>
+                    <name>I tap "//android.widget.TextView[@text="Webview"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Webview"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Main session - Last Seen Screenshot' source='32c3103c-50c9-4e67-92d2-d352e56aacb2-attachment.png' type='image/png' size='1378600'/>
+            </attachments>
+            <failure>
+                <message>Request failed with status code 404</message>
+                <stack-trace>AxiosError: Request failed with status code 404
+                    at settle (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\node_modules\axios\dist\node\axios.cjs:2031:12)
+                    at IncomingMessage.handleStreamEnd (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\node_modules\axios\dist\node\axios.cjs:3148:11)
+                    at IncomingMessage.emit (node:events:530:35)
+                    at IncomingMessage.emit (node:domain:489:12)
+                    at endReadableNT (node:internal/streams/readable:1698:12)
+                    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+                    at Axios.request (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\node_modules\axios\dist\node\axios.cjs:4258:41)
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1748012056541' status='failed' stop='1748012079950'>
+            <name>Funcionamento do scroll vertical e navegação no Submenu</name>
+            <title>Funcionamento do scroll vertical e navegação no Submenu</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps/>
+            <attachments>
+                <attachment title='Main session - Last Seen Screenshot' source='67da7558-3623-47bd-a420-fbe07907e3a8-attachment.png' type='image/png' size='290288'/>
+            </attachments>
+            <failure>
+                <message>Can't call click on element with selector "//android.widget.TextView[@text="Get Started"]" because element wasn't found</message>
+                <stack-trace>Error: Can't call click on element with selector "//android.widget.TextView[@text="Get Started"]" because element wasn't found
+                    at implicitWait (file:///C:/Users/aime_/carrefour-mobile/node_modules/webdriverio/build/utils/implicitWait.js:29:19)
+                    at async Element.elementErrorHandlerCallbackFn (file:///C:/Users/aime_/carrefour-mobile/node_modules/webdriverio/build/middlewares.js:15:29)
+                    at async Element.wrapCommandFn (file:///C:/Users/aime_/carrefour-mobile/node_modules/@wdio/utils/build/shim.js:90:29)
+                    at async Object.scrollAteGetStarted (C:\Users\aime_\carrefour-mobile\pages\NavegacaoSubmenu.js:34:5)
+                    at async Test.&lt;anonymous> (C:\Users\aime_\carrefour-mobile\login_test.js:67:3)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

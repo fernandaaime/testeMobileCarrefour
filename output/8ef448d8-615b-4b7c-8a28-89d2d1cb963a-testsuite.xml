@@ -1,0 +1,244 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1747938113931' stop='1747938128975'>
+    <name>Testes Mobile:</name>
+    <title>Testes Mobile:</title>
+    <test-cases>
+        <test-case start='1747938113933' status='failed' stop='1747938116726'>
+            <name>Cadastro com dados válidos</name>
+            <title>Cadastro com dados válidos</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1747938116723' status='failed' stop='1747938116725'>
+                    <name>I wait for element "//android.widget.EditText[@content-desc="input-email"]", 15</name>
+                    <title>I wait for element "//android.widget.EditText[@content-desc="input-email"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>Cannot read properties of undefined (reading 'waitUntil')</message>
+                <stack-trace>TypeError: Cannot read properties of undefined (reading 'waitUntil')
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\WebDriver.js:2270:25)
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\Appium.js:1695:18)
+                    at HelperStep.run (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\helper.js:28:49)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\record.js:45:26
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1747938116729' status='failed' stop='1747938118269'>
+            <name>Login com sucesso</name>
+            <title>Login com sucesso</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1747938118268' status='failed' stop='1747938118269'>
+                    <name>I wait for element "//android.widget.TextView[@text="Login"]", 10</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Login"]", 10</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>Cannot read properties of undefined (reading 'waitUntil')</message>
+                <stack-trace>TypeError: Cannot read properties of undefined (reading 'waitUntil')
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\WebDriver.js:2270:25)
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\Appium.js:1695:18)
+                    at HelperStep.run (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\helper.js:28:49)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\record.js:45:26
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1747938118270' status='failed' stop='1747938119816'>
+            <name>Login com menos de 8 caracteres</name>
+            <title>Login com menos de 8 caracteres</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1747938119815' status='failed' stop='1747938119816'>
+                    <name>I wait for element "//android.widget.TextView[@text="Login"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Login"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>Cannot read properties of undefined (reading 'waitUntil')</message>
+                <stack-trace>TypeError: Cannot read properties of undefined (reading 'waitUntil')
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\WebDriver.js:2270:25)
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\Appium.js:1695:18)
+                    at HelperStep.run (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\helper.js:28:49)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\record.js:45:26
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1747938119817' status='failed' stop='1747938121313'>
+            <name>Preenchimento de formulário</name>
+            <title>Preenchimento de formulário</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1747938121312' status='failed' stop='1747938121312'>
+                    <name>I wait for element "//android.widget.EditText[@content-desc="text-input"]", 15</name>
+                    <title>I wait for element "//android.widget.EditText[@content-desc="text-input"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>Cannot read properties of undefined (reading 'waitUntil')</message>
+                <stack-trace>TypeError: Cannot read properties of undefined (reading 'waitUntil')
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\WebDriver.js:2270:25)
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\Appium.js:1695:18)
+                    at HelperStep.run (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\helper.js:28:49)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\record.js:45:26
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1747938121314' status='failed' stop='1747938122825'>
+            <name>Navegação entre abas</name>
+            <title>Navegação entre abas</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1747938122825' status='failed' stop='1747938122825'>
+                    <name>I wait for element "//android.widget.TextView[@text="Swipe"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Swipe"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>Cannot read properties of undefined (reading 'waitUntil')</message>
+                <stack-trace>TypeError: Cannot read properties of undefined (reading 'waitUntil')
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\WebDriver.js:2270:25)
+                    at Appium.waitForElement (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\Appium.js:1695:18)
+                    at HelperStep.run (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\helper.js:28:49)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\record.js:45:26
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1747938122827' status='failed' stop='1747938124401'>
+            <name>Funcionalidade Scroll Horizontal</name>
+            <title>Funcionalidade Scroll Horizontal</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Cannot read properties of undefined (reading 'getWindowSize')</message>
+                <stack-trace>TypeError: Cannot read properties of undefined (reading 'getWindowSize')
+                    at Object.realizarScrollHorizontal (C:\Users\aime_\carrefour-mobile\pages\ScrollPage.js:8:44)
+                    at Test.&lt;anonymous> (C:\Users\aime_\carrefour-mobile\login_test.js:48:20)
+                    at test.fn (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\mocha\asyncWrapper.js:81:10)
+                    at callFnAsync (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runnable.js:392:21)
+                    at Runnable.run (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runnable.js:336:7)
+                    at Runner.runTest (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:677:10)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:800:12
+                    at next (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:592:14)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:602:7
+                    at next (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:485:14)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1747938124402' status='failed' stop='1747938125928'>
+            <name>Acessibilidade de suporte</name>
+            <title>Acessibilidade de suporte</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1747938125928' status='failed' stop='1747938125928'>
+                    <name>I tap "//android.widget.TextView[@text="Home"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Home"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>Cannot read properties of undefined (reading '$')</message>
+                <stack-trace>TypeError: Cannot read properties of undefined (reading '$')
+                    at Appium.tap (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\Appium.js:1047:46)
+                    at HelperStep.run (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\helper.js:28:49)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\record.js:45:26
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1747938125930' status='failed' stop='1747938127441'>
+            <name>Acessibilidade para aba Webview</name>
+            <title>Acessibilidade para aba Webview</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1747938127440' status='failed' stop='1747938127441'>
+                    <name>I tap "//android.widget.TextView[@text="Webview"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Webview"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>Cannot read properties of undefined (reading '$')</message>
+                <stack-trace>TypeError: Cannot read properties of undefined (reading '$')
+                    at Appium.tap (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\helper\Appium.js:1047:46)
+                    at HelperStep.run (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\helper.js:28:49)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\step\record.js:45:26
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1747938127442' status='failed' stop='1747938128973'>
+            <name>Funcionamento do scroll vertical e navegação no Submenu</name>
+            <title>Funcionamento do scroll vertical e navegação no Submenu</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Cannot read properties of undefined (reading 'getWindowSize')</message>
+                <stack-trace>TypeError: Cannot read properties of undefined (reading 'getWindowSize')
+                    at Object.scrollAteGetStarted (C:\Users\aime_\carrefour-mobile\pages\NavegacaoSubmenu.js:7:44)
+                    at Test.&lt;anonymous> (C:\Users\aime_\carrefour-mobile\login_test.js:60:26)
+                    at test.fn (C:\Users\aime_\carrefour-mobile\node_modules\codeceptjs\lib\mocha\asyncWrapper.js:81:10)
+                    at callFnAsync (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runnable.js:392:21)
+                    at Runnable.run (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runnable.js:336:7)
+                    at Runner.runTest (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:677:10)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:800:12
+                    at next (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:592:14)
+                    at C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:602:7
+                    at next (C:\Users\aime_\carrefour-mobile\node_modules\mocha\lib\runner.js:485:14)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

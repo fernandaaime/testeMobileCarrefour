@@ -1,7 +1,8 @@
 Feature('Testes Mobile');
 
+const { abrirAplicativo } = require('./pages/appActions');
+const CadastroPage = require('./pages/CadastroPage'); // Removida a duplicação
 const LoginPage = require('./pages/LoginPage');
-const CadastroPage = require('./pages/CadastroPage');
 const LoginErroPage = require('./pages/LoginErroPage');
 const FormPage = require('./pages/FormsPage');
 const NavegacaoPage = require('./pages/NavegacaoPage');
@@ -10,10 +11,15 @@ const SuportePage = require('./pages/SuportePage');
 const AbaWebViewPage = require('./pages/AbaWebViewPage');
 const NavegacaoSubmenu = require('./pages/NavegacaoSubmenu');
 
-Scenario('Cadastro com dados válidos', async ({ I }) => {
-  await CadastroPage.preencherFormulario('fernanda.aime@gmail.com', '12345678');
-  await CadastroPage.enviarCadastro();
-  await CadastroPage.verificarCadastroComSucesso();
+Scenario('Abrir o aplicativo', async ({ I }) => {
+  await abrirAplicativo(I);
+  // Agora o app está aberto e pronto para execução do teste
+});
+
+Scenario('Cadastro com dados válidos', async ({ I }) => { 
+  await CadastroPage.preencherFormulario('fernanda.aime@gmail.com', '12345678'); 
+  await CadastroPage.enviarCadastro(); 
+  await CadastroPage.verificarCadastroComSucesso(); 
 });
 
 Scenario('Login com sucesso', async ({ I }) => {

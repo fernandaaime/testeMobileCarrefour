@@ -1,4 +1,3 @@
-// pages/CadastroPage.js
 const { actor } = require('codeceptjs');
 const I = actor();
 
@@ -11,14 +10,17 @@ module.exports = {
 
   buttons: {
     signUp: '//android.widget.TextView[@text="SIGN UP"]',
-    confirm: '//android.widget.Button[@resource-id="android:id/button1"]'
+    confirm: '//android.widget.Button[@resource-id="android:id/button1"]',
   },
 
   alerts: {
-    successTitle: '//android.widget.TextView[@resource-id="android:id/alertTitle"]'
+    successTitle: '//android.widget.TextView[@resource-id="android:id/alertTitle"]',
   },
 
   async preencherFormulario(email, senha) {
+
+    I.tap('//android.widget.TextView[@text="Login"]');
+    I.tap('//android.widget.TextView[@text="Sign up"]');
     I.waitForElement(this.fields.email, 15);
     I.fillField(this.fields.email, email);
     I.fillField(this.fields.password, senha);
@@ -31,7 +33,8 @@ module.exports = {
 
   async verificarCadastroComSucesso() {
     I.waitForElement(this.alerts.successTitle, 15);
+    I.wait(2); // Garante que o alerta está visível antes da verificação
     I.see('Signed Up!', this.alerts.successTitle);
     I.tap(this.buttons.confirm);
-  }
+  },
 };

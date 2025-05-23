@@ -17,10 +17,11 @@ exports.config = {
       'appium:chromedriverAutodownload': true,
       desiredCapabilities: {
         platformName: 'Android',
-        platformVersion: '11',
-        deviceName: 'emulator-5554',
         automationName: 'UiAutomator2',
-        app: 'C:/Users/aime_/Downloads/app-teste-mobile/android.wdio.native.app.v1.0.8.apk',
+        deviceName: 'emulator-5554', // atualizado para o nome lógico do device
+        "appium:udid": "emulator-5554",
+        platformVersion: '12',
+        app: "C:\\Users\\aime_\\Downloads\\android.wdio.native.app.v1.0.8.apk",
         appPackage: 'com.wdiodemoapp',
         appActivity: 'com.wdiodemoapp.MainActivity',
         noReset: true
@@ -43,33 +44,3 @@ exports.config = {
   },
   name: 'carrefour-mobile-e2e'
 };
-
-/*const isIOS = process.env.PLATFORM === 'ios';
-exports.config = {
-  helpers: {
-    Appium: {
-      host: 'localhost',
-      port: 4723,
-      path: '/',
-      platform: isIOS ? 'iOS' : 'Android',
-      desiredCapabilities: isIOS
-        ? {
-            platformName: 'iOS',
-            platformVersion: '17.0',
-            deviceName: 'iPhone 14',
-            automationName: 'XCUITest',
-            app: '/Users/seu-usuario/Apps/SeuApp.app',
-            noReset: true
-          }
-        : {
-            platformName: 'Android',
-            deviceName: 'emulator-5554',
-            automationName: 'UiAutomator2',
-            app: 'C:/Users/aime_/Downloads/app.apk',
-            appPackage: 'com.wdiodemoapp',
-            appActivity: 'com.wdiodemoapp.MainActivity',
-            noReset: true
-          }
-    }
-  }
-}*/

@@ -1,0 +1,395 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1748024169464' stop='1748024284537'>
+    <name>Testes Mobile:</name>
+    <title>Testes Mobile:</title>
+    <test-cases>
+        <test-case start='1748024169467' status='passed' stop='1748024184322'>
+            <name>Abrir o aplicativo</name>
+            <title>Abrir o aplicativo</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748024178146' status='passed' stop='1748024184271'>
+                    <name>I wait 5</name>
+                    <title>I wait 5</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1748024186204' status='passed' stop='1748024205251'>
+            <name>Cadastro com dados válidos</name>
+            <title>Cadastro com dados válidos</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748024191178' status='passed' stop='1748024191924'>
+                    <name>I tap "//android.widget.TextView[@text="Login"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Login"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024191924' status='passed' stop='1748024192877'>
+                    <name>I tap "//android.widget.TextView[@text="Sign up"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Sign up"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024192877' status='passed' stop='1748024193327'>
+                    <name>I wait for element "//android.widget.EditText[@content-desc="input-email"]", 15</name>
+                    <title>I wait for element "//android.widget.EditText[@content-desc="input-email"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024193327' status='passed' stop='1748024195531'>
+                    <name>I fill field "//android.widget.EditText[@content-desc="input-email"]", "fernanda.aime@gmail.com"</name>
+                    <title>I fill field "//android.widget.EditText[@content-desc="input-email"]", "fernanda.aime@gmail.com"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024195531' status='passed' stop='1748024197660'>
+                    <name>I fill field "//android.widget.EditText[@content-desc="input-password"]", "12345678"</name>
+                    <title>I fill field "//android.widget.EditText[@content-desc="input-password"]", "12345678"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024197660' status='passed' stop='1748024199800'>
+                    <name>I fill field "//android.widget.EditText[@content-desc="input-repeat-password"]", "12345678"</name>
+                    <title>I fill field "//android.widget.EditText[@content-desc="input-repeat-password"]", "12345678"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024199800' status='passed' stop='1748024200472'>
+                    <name>I tap "//android.widget.TextView[@text="SIGN UP"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="SIGN UP"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024200472' status='passed' stop='1748024203055'>
+                    <name>I wait for element "//android.widget.TextView[@resource-id="android:id/alertTitle"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@resource-id="android:id/alertTitle"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024203056' status='passed' stop='1748024205066'>
+                    <name>I wait 2</name>
+                    <title>I wait 2</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024205066' status='passed' stop='1748024205135'>
+                    <name>I see "Signed Up!", "//android.widget.TextView[@resource-id="android:id/alertTitle"]"</name>
+                    <title>I see "Signed Up!", "//android.widget.TextView[@resource-id="android:id/alertTitle"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024205135' status='passed' stop='1748024205251'>
+                    <name>I tap "//android.widget.Button[@resource-id="android:id/button1"]"</name>
+                    <title>I tap "//android.widget.Button[@resource-id="android:id/button1"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1748024206011' status='passed' stop='1748024218473'>
+            <name>Login com sucesso</name>
+            <title>Login com sucesso</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748024209692' status='passed' stop='1748024210267'>
+                    <name>I wait for element "//android.widget.TextView[@text="Login"]", 10</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Login"]", 10</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024210267' status='passed' stop='1748024210457'>
+                    <name>I tap "//android.widget.TextView[@text="Login"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Login"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024210457' status='passed' stop='1748024210884'>
+                    <name>I wait for element "//android.widget.EditText[@content-desc="input-email"]", 15</name>
+                    <title>I wait for element "//android.widget.EditText[@content-desc="input-email"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024210884' status='passed' stop='1748024212975'>
+                    <name>I fill field "//android.widget.EditText[@content-desc="input-email"]", "usuario@email.com"</name>
+                    <title>I fill field "//android.widget.EditText[@content-desc="input-email"]", "usuario@email.com"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024212975' status='passed' stop='1748024215109'>
+                    <name>I fill field "//android.widget.EditText[@content-desc="input-password"]", "12345678"</name>
+                    <title>I fill field "//android.widget.EditText[@content-desc="input-password"]", "12345678"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024215109' status='passed' stop='1748024215780'>
+                    <name>I tap "//android.widget.TextView[@text="LOGIN"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="LOGIN"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024215780' status='passed' stop='1748024218293'>
+                    <name>I wait for element "//android.widget.TextView[@resource-id="android:id/alertTitle"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@resource-id="android:id/alertTitle"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024218293' status='passed' stop='1748024218360'>
+                    <name>I see "Success", "//android.widget.TextView[@resource-id="android:id/alertTitle"]"</name>
+                    <title>I see "Success", "//android.widget.TextView[@resource-id="android:id/alertTitle"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024218360' status='passed' stop='1748024218473'>
+                    <name>I tap "//android.widget.Button[@resource-id="android:id/button1"]"</name>
+                    <title>I tap "//android.widget.Button[@resource-id="android:id/button1"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1748024218909' status='passed' stop='1748024229502'>
+            <name>Login com menos de 8 caracteres</name>
+            <title>Login com menos de 8 caracteres</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748024222602' status='passed' stop='1748024223247'>
+                    <name>I wait for element "//android.widget.TextView[@text="Login"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Login"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024223248' status='passed' stop='1748024223487'>
+                    <name>I tap "//android.widget.TextView[@text="Login"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Login"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024223487' status='passed' stop='1748024223616'>
+                    <name>I wait for element "//android.widget.EditText[@content-desc="input-email"]", 15</name>
+                    <title>I wait for element "//android.widget.EditText[@content-desc="input-email"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024223616' status='passed' stop='1748024225340'>
+                    <name>I fill field "//android.widget.EditText[@content-desc="input-email"]", "fernanda.aime@gmail.com"</name>
+                    <title>I fill field "//android.widget.EditText[@content-desc="input-email"]", "fernanda.aime@gmail.com"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024225340' status='passed' stop='1748024227472'>
+                    <name>I fill field "//android.widget.EditText[@content-desc="input-password"]", "12345"</name>
+                    <title>I fill field "//android.widget.EditText[@content-desc="input-password"]", "12345"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024227472' status='passed' stop='1748024228144'>
+                    <name>I tap "//android.widget.TextView[@text="LOGIN"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="LOGIN"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024228144' status='passed' stop='1748024229138'>
+                    <name>I wait for element "//android.widget.TextView[contains(@text, "characters")]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[contains(@text, "characters")]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024229138' status='passed' stop='1748024229247'>
+                    <name>I see "Please enter at least 8 characters", "//android.widget.TextView[contains(@text, "characters")]"</name>
+                    <title>I see "Please enter at least 8 characters", "//android.widget.TextView[contains(@text, "characters")]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024229247' status='passed' stop='1748024229331'>
+                    <name>I wait for element "//android.widget.TextView[@text="Forms"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Forms"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024229332' status='passed' stop='1748024229502'>
+                    <name>I tap "//android.widget.TextView[@text="Forms"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Forms"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1748024229919' status='passed' stop='1748024237896'>
+            <name>Preenchimento de formulário</name>
+            <title>Preenchimento de formulário</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748024233614' status='passed' stop='1748024234212'>
+                    <name>I wait for element "//android.widget.EditText[@content-desc="text-input"]", 15</name>
+                    <title>I wait for element "//android.widget.EditText[@content-desc="text-input"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024234212' status='passed' stop='1748024235863'>
+                    <name>I fill field "//android.widget.EditText[@content-desc="text-input"]", "Fernanda"</name>
+                    <title>I fill field "//android.widget.EditText[@content-desc="text-input"]", "Fernanda"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024235863' status='passed' stop='1748024236555'>
+                    <name>I wait for element "//android.widget.TextView[@text="Active"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Active"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024236555' status='passed' stop='1748024236741'>
+                    <name>I tap "//android.widget.TextView[@text="Active"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Active"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024236741' status='passed' stop='1748024237660'>
+                    <name>I wait for element "//android.widget.TextView[@resource-id="android:id/message"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@resource-id="android:id/message"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024237660' status='passed' stop='1748024237725'>
+                    <name>I see "This button is active", "//android.widget.TextView[@resource-id="android:id/message"]"</name>
+                    <title>I see "This button is active", "//android.widget.TextView[@resource-id="android:id/message"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024237725' status='passed' stop='1748024237774'>
+                    <name>I wait for element "//android.widget.Button[@resource-id="android:id/button1"]", 10</name>
+                    <title>I wait for element "//android.widget.Button[@resource-id="android:id/button1"]", 10</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024237774' status='passed' stop='1748024237896'>
+                    <name>I tap "//android.widget.Button[@resource-id="android:id/button1"]"</name>
+                    <title>I tap "//android.widget.Button[@resource-id="android:id/button1"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1748024238690' status='passed' stop='1748024243102'>
+            <name>Navegação entre abas</name>
+            <title>Navegação entre abas</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748024242342' status='passed' stop='1748024242901'>
+                    <name>I wait for element "//android.widget.TextView[@text="Swipe"]", 15</name>
+                    <title>I wait for element "//android.widget.TextView[@text="Swipe"]", 15</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024242901' status='passed' stop='1748024243102'>
+                    <name>I tap "//android.widget.TextView[@text="Swipe"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Swipe"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1748024243899' status='passed' stop='1748024256823'>
+            <name>Funcionalidade Scroll Horizontal</name>
+            <title>Funcionalidade Scroll Horizontal</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1748024257176' status='passed' stop='1748024263463'>
+            <name>Acessibilidade de suporte</name>
+            <title>Acessibilidade de suporte</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748024260826' status='passed' stop='1748024261455'>
+                    <name>I tap "//android.widget.TextView[@text="Home"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Home"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024261455' status='passed' stop='1748024263463'>
+                    <name>I wait 2</name>
+                    <title>I wait 2</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1748024263849' status='passed' stop='1748024270028'>
+            <name>Acessibilidade para aba Webview</name>
+            <title>Acessibilidade para aba Webview</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps>
+                <step start='1748024267408' status='passed' stop='1748024268018'>
+                    <name>I tap "//android.widget.TextView[@text="Webview"]"</name>
+                    <title>I tap "//android.widget.TextView[@text="Webview"]"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1748024268019' status='passed' stop='1748024270028'>
+                    <name>I wait 2</name>
+                    <title>I wait 2</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+        </test-case>
+        <test-case start='1748024271105' status='passed' stop='1748024283676'>
+            <name>Funcionamento do scroll vertical e navegação no Submenu</name>
+            <title>Funcionamento do scroll vertical e navegação no Submenu</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -9,8 +9,8 @@
     "allure:open": "npx allure open"
   },
   "dependencies": {
-    "@wdio/appium-service": "^8.18.2",
-    "appium": "^2.0.0",
+    "@wdio/appium-service": "^8.44.1",
+    "appium": "^2.18.0",
     "codeceptjs": "^3.7.3",
     "webdriverio": "^8.18.2"
   },
