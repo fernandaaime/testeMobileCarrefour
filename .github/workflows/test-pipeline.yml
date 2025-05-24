@@ -1,0 +1,44 @@
+name: Run Mobile Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Instalar Appium
+        run: npm install -g appium
+
+      - name: Configurar Android SDK
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y android-sdk
+          echo "export ANDROID_HOME=/usr/lib/android-sdk" >> $GITHUB_ENV
+          echo "export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH" >> $GITHUB_ENV
+
+      - name: Criar e iniciar o emulador Android
+        run: |
+          sdkmanager "system-images;android-31;google_apis;x86_64"
+          echo "no" | avdmanager create avd -n test_emulator -k "system-images;android-31;google_apis;x86_64"
+          emulator -avd test_emulator -no-window &
+
+      - name: Iniciar servidor Appium
+        run: appium --log-level info &
+
+      - name: Executar testes
+        run: npx codeceptjs run --steps 
