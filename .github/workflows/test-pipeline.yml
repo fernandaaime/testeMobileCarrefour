@@ -24,12 +24,14 @@ jobs:
       - name: Instalar Appium
         run: npm install -g appium
 
-      - name: Instalar Android SDK
+      - name: Instalar e configurar Android SDK
         run: |
-         sudo apt update
-         sudo apt install -y android-sdk
-         echo "export ANDROID_HOME=/usr/lib/android-sdk" >> $GITHUB_ENV
-         echo "export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH" >> $GITHUB_ENV
+          sudo apt-get update
+          sudo apt-get install -y wget unzip default-jdk
+          mkdir -p $ANDROID_HOME/cmdline-tools/latest
+          wget https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
+          unzip -q commandlinetools-linux-10406996_latest.zip -d $ANDROID_HOME/cmdline-tools/latest
+          echo "export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH" >> $GITHUB_ENV
 
       - name: Instalar System Image para Emulador
         run: |
@@ -44,4 +46,4 @@ jobs:
         run: appium --log-level info &
 
       - name: Executar testes
-        run: npx codeceptjs run --steps 
+        run: npx codeceptjs run --steps
