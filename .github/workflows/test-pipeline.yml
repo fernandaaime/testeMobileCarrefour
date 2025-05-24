@@ -34,17 +34,14 @@ jobs:
             mv $ANDROID_HOME/cmdline-tools/cmdline-tools $ANDROID_HOME/cmdline-tools/latest
             echo "export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH" >> $GITHUB_ENV
 
-
       - name: Baixar System Image para Emulador
         run: |
             $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "system-images;android-31;google_apis;x86_64"
-
 
       - name: Criar e iniciar emulador
         run: |
             echo "no" | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n test_emulator -k "system-images;android-31;google_apis;x86_64" -d "pixel"
             emulator -avd test_emulator -no-window -gpu swiftshader_indirect &
-
 
       - name: Iniciar servidor Appium
         run: appium --log-level info &
