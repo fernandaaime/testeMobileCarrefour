@@ -33,6 +33,9 @@ jobs:
             unzip -q commandlinetools-linux-10406996_latest.zip -d $ANDROID_HOME/cmdline-tools
             mv $ANDROID_HOME/cmdline-tools/cmdline-tools $ANDROID_HOME/cmdline-tools/latest
             echo "export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH" >> $GITHUB_ENV
+        
+      - name: Iniciar servidor Appium
+        run: appium --log-level info &
 
       - name: Verificar SDK e System Images Disponíveis
         run: |
@@ -47,8 +50,7 @@ jobs:
             echo "no" | $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n test_emulator -k "system-images;android-31;google_apis;x86_64" -d "pixel"
             emulator -avd test_emulator -no-window -gpu swiftshader_indirect &
 
-      - name: Iniciar servidor Appium
-        run: appium --log-level info &
+      
 
       - name: Executar testes
         run: npx codeceptjs run --steps
