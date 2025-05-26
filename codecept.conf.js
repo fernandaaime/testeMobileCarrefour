@@ -7,8 +7,8 @@ exports.config = {
       host: "hub-cloud.browserstack.com",
       port: 4444,
       platform: "Android",
-      user: "BROWSERSTACK_USER",
-      key: "BROWSERSTACK_KEY",
+      user: "process.env.BROWSERSTACK_USER",
+      key: "process.env.BROWSERSTACK_KEY",
       device: "Samsung Galaxy S22 Ultra",
     }
   },
