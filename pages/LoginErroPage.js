@@ -18,32 +18,27 @@ module.exports = {
   },
 
   async acessarTelaDeLogin() {
-    const I = inject();
-    I.waitForElement(this.buttons.loginTab, 15);
+    I.waitForVisible(this.buttons.loginTab, 15);
     I.tap(this.buttons.loginTab);
   },
 
   async preencherFormulario(email, senha) {
-    const I = inject();
-    I.waitForElement(this.fields.email, 15);
+    I.waitForVisible(this.fields.email, 15);
     I.fillField(this.fields.email, email);
     I.fillField(this.fields.password, senha);
   },
 
   async submeterLogin() {
-    const I = inject();
     I.tap(this.buttons.loginSubmit);
   },
 
   async verificarErroSenhaCurta() {
-    const I = inject();
-    I.waitForElement(this.alerts.shortPassword, 15);
+    I.waitForVisible(this.alerts.shortPassword, 15);
     I.see('Please enter at least 8 characters', this.alerts.shortPassword);
   },
 
   async voltarParaForms() {
-    const I = inject();
-    I.waitForElement(this.buttons.formsTab, 15);
+    I.waitForVisible(this.buttons.formsTab, 15);
     I.tap(this.buttons.formsTab);
   }
 };

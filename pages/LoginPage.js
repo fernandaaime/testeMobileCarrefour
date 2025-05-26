@@ -9,12 +9,12 @@ module.exports = {
 
   // Métodos
   acessarAbaLogin() {
-    I.waitForElement(this.loginTab, 10);
+    I.waitForVisible(this.loginTab, 10);
     I.tap(this.loginTab);
   },
 
   preencherEmail(email) {
-    I.waitForElement(this.emailField, 15);
+    I.waitForVisible(this.emailField, 15);
     I.fillField(this.emailField, email);
   },
 

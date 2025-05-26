@@ -2,7 +2,7 @@ const { container } = require('codeceptjs');
 
 module.exports = {
   async realizarScrollHorizontal(vezes = 5) {
-    const I = inject();
+    const I = inject(); // garante acesso ao actor atual
     const appium = container.helpers('Appium');
     const driver = appium.browser;
 
@@ -26,7 +26,9 @@ module.exports = {
           ]
         }
       ]);
-      await driver.pause(1000);
+
+      await driver.releaseActions(); // libera ações pendentes para evitar falhas
+      await driver.pause(1000); // espera entre os scrolls
     }
   }
 };

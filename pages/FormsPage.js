@@ -1,3 +1,5 @@
+const { I } = inject();
+
 module.exports = {
   fields: {
     nome: '//android.widget.EditText[@content-desc="text-input"]',
@@ -13,26 +15,22 @@ module.exports = {
   },
 
   async preencherNome(nome) {
-    const { I } = inject();
-    I.waitForElement(this.fields.nome, 15);
+    I.waitForVisible(this.fields.nome, 15);
     I.fillField(this.fields.nome, nome);
   },
 
   async tocarBotaoAtivo() {
-    const { I } = inject();
-    I.waitForElement(this.buttons.activeButton, 15);
+    I.waitForVisible(this.buttons.activeButton, 15);
     I.tap(this.buttons.activeButton);
   },
 
   async verificarMensagemAtivo() {
-    const { I } = inject();
-    I.waitForElement(this.alerts.activeMessage, 15);
+    I.waitForVisible(this.alerts.activeMessage, 15);
     I.see('This button is active', this.alerts.activeMessage);
   },
 
   async confirmarAlerta() {
-    const { I } = inject();
-    I.waitForElement(this.buttons.alertOkButton, 10);
+    I.waitForVisible(this.buttons.alertOkButton, 10);
     I.tap(this.buttons.alertOkButton);
   }
 };
