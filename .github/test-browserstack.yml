@@ -1,4 +1,4 @@
-name: Run Mobile Tests on BrowserStack
+name: Run Mobile Tests on BrowserStac
 
 on:
   push:
