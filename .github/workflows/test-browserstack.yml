@@ -1,4 +1,4 @@
-name: Run Mobile Tests on BrowserStac
+name: Run Mobile Tests on BrowserStack
 
 on:
   push:
@@ -28,6 +28,16 @@ jobs:
       - name: Instalar Appium e CodeceptJS
         run: npm install -g appium codeceptjs
 
-      - name: Executar testes no BrowserStack
+      - name: Instalar WebDriverIO
+        run: npm install -g webdriverio@^6.12.1
+
+      - name: Criar e configurar BrowserStack
         run: |
-          npx codeceptjs run --steps --profile browserstack
+          echo '{ 
+            "user": "'${{ secrets.BROWSERSTACK_USERNAME }}'",
+            "key": "'${{ secrets.BROWSERSTACK_ACCESS_KEY }}'",
+            "server": "hub.browserstack.com"
+          }' > browserstack.json
+
+      - name: Executar testes no BrowserStack
+        run: npx codeceptjs run --steps --profile browserstack
