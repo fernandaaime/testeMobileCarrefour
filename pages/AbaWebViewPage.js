@@ -4,7 +4,7 @@ module.exports = {
 
   // Ação
   acessarAbaWebview() {
-    const I = actor();
+    const { I } = inject();
     I.tap(this.abaWebviewBtn);
     I.wait(2);
   }

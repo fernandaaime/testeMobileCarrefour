@@ -1,6 +1,5 @@
 // pages/LoginPage.js
-const { actor } = require('codeceptjs');
-const I = actor();
+const { I } = inject();
 
 module.exports = {
   buttons: {

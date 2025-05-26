@@ -1,7 +1,6 @@
 Feature('Testes Mobile');
 
-const appActions = require('../pages/appActions');
-//*const { abrirAplicativo } = require('./pages/appActions');
+const { abrirAplicativo } = require('../pages/appActions');
 const CadastroPage = require('../pages/CadastroPage'); // Removida a duplicação
 const LoginPage = require('../pages/LoginPage');
 const LoginErroPage = require('../pages/LoginErroPage');

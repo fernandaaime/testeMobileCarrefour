@@ -4,7 +4,7 @@ module.exports = {
 
   // Ação
   acessarHome() {
-    const I = actor();
+    const { I } = inject();
     I.tap(this.btnHome);
     I.wait(2);
   }

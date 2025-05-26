@@ -13,25 +13,25 @@ module.exports = {
   },
 
   async preencherNome(nome) {
-    const I = actor();
+    const { I } = inject();
     I.waitForElement(this.fields.nome, 15);
     I.fillField(this.fields.nome, nome);
   },
 
   async tocarBotaoAtivo() {
-    const I = actor();
+    const { I } = inject();
     I.waitForElement(this.buttons.activeButton, 15);
     I.tap(this.buttons.activeButton);
   },
 
   async verificarMensagemAtivo() {
-    const I = actor();
+    const { I } = inject();
     I.waitForElement(this.alerts.activeMessage, 15);
     I.see('This button is active', this.alerts.activeMessage);
   },
 
   async confirmarAlerta() {
-    const I = actor();
+    const { I } = inject();
     I.waitForElement(this.buttons.alertOkButton, 10);
     I.tap(this.buttons.alertOkButton);
   }
