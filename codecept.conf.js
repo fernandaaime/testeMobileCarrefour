@@ -12,6 +12,11 @@ exports.config = {
       platform: 'Android',
       user: process.env.BROWSERSTACK_USER,
       key: process.env.BROWSERSTACK_KEY,
+      // --- Inicio ajustes ---
+      restart: false, // Tenta NÃO reiniciar o navegador/aplicativo entre os cenários
+      keepBrowserState: true, // Mantém o estado do navegador/aplicativo entre os cenários
+      keepCookies: true, // Mantém cookies entre os cenários (se aplicável)
+      // --- FIM  ---
       device: 'Samsung Galaxy S22 Ultra',
       automationName: 'UiAutomator2',       
       appWaitActivity: '*',                   
