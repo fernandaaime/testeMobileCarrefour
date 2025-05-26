@@ -1,3 +1,6 @@
+const { I } = inject();
+
+
 module.exports = {
   // Seletor
   abaWebviewBtn: '//android.widget.TextView[@text="Webview"]',
