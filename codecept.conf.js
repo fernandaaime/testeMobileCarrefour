@@ -2,10 +2,14 @@ require('./hooks/clearAppCache');
 
 exports.config = {
   tests: './tests/*_test.js',
-  timeout: 10, // Ajustado para segundos, conforme a sugestão do CodeceptJS
+  timeout: 10, // Ajustado para segundos
   output: './output',
   helpers: {
     Appium: {
+
+      platformName: 'Android', // Duplicar aqui para a verificação inicial do CodeceptJS
+      app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2', // Duplicar aqui também
+
       host: 'hub-cloud.browserstack.com',
       port: 443, // Porta padrão HTTPS do BrowserStack
       user: process.env.BROWSERSTACK_USER,
@@ -15,14 +19,13 @@ exports.config = {
       keepCookies: true,
       waitForTimeout: 15000, // Tempo de espera para elementos em milissegundos
 
-      desiredCapabilities: { // <-- ESSA LINHA FOI CORRIGIDA
+      desiredCapabilities: {
         platformName: 'Android',
         'bstack:options': {
           deviceName: 'Samsung Galaxy S22 Ultra',
           app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2',
           automationName: 'UiAutomator2',
           appWaitActivity: '*',
-
         },
       },
 
