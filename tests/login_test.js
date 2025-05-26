@@ -2,15 +2,15 @@ Feature('Testes Mobile');
 
 const appActions = require('../pages/appActions');
 //*const { abrirAplicativo } = require('./pages/appActions');
-const CadastroPage = require('./pages/CadastroPage'); // Removida a duplicação
-const LoginPage = require('./pages/LoginPage');
+const CadastroPage = require('../pages/CadastroPage'); // Removida a duplicação
+const LoginPage = require('../pages/LoginPage');
 const LoginErroPage = require('./pages/LoginErroPage');
-const FormPage = require('./pages/FormsPage');
-const NavegacaoPage = require('./pages/NavegacaoPage');
-const ScrollPage = require('./pages/ScrollPage');
-const SuportePage = require('./pages/SuportePage');
-const AbaWebViewPage = require('./pages/AbaWebViewPage');
-const NavegacaoSubmenu = require('./pages/NavegacaoSubmenu');
+const FormPage = require('../pages/FormsPage');
+const NavegacaoPage = require('../pages/NavegacaoPage');
+const ScrollPage = require('../pages/ScrollPage');
+const SuportePage = require('../pages/SuportePage');
+const AbaWebViewPage = require('../pages/AbaWebViewPage');
+const NavegacaoSubmenu = require('../pages/NavegacaoSubmenu');
 
 Scenario('Abrir o aplicativo', async ({ I }) => {
   await abrirAplicativo(I);
