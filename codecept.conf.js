@@ -13,7 +13,7 @@ exports.config = {
     }
   },
   include: {
-    I: './steps_file.js'
+    I: './login_test.js'
   },
   plugins: {
     allure: {
