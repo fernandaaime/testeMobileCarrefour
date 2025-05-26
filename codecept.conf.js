@@ -7,8 +7,8 @@ exports.config = {
       host: "hub-cloud.browserstack.com",
       port: 4444,
       platform: "Android",
-      user: "BROWSERSTACK_USER",
-      key: "BROWSERSTACK_KEY",
+      user: "fernandaaime_mmghya",
+      key: "qNLsNdDt3JzPApJyXWXx",
       device: "Samsung Galaxy S22 Ultra",
       desiredCapabilities: {
         "browserstack.networkLogs": true,
