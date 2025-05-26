@@ -31,8 +31,8 @@ jobs:
       - name: Criar e configurar BrowserStack
         run: |
           echo '{ 
-            "user": "${BROWSERSTACK_USERNAME}",
-            "key": "${BROWSERSTACK_ACCESS_KEY}",
+            "user": "'${{ secrets.BROWSERSTACK_USERNAME }}'",
+            "key": "'${{ secrets.BROWSERSTACK_ACCESS_KEY }}'",
             "server": "hub.browserstack.com"
           }' > browserstack.json
 
