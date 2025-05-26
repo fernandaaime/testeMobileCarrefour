@@ -14,7 +14,7 @@ exports.config = {
   },
   include: {
     I: './steps_file.js',
-    LoginTest: './tests/login_test.js'
+    LoginTest: './tests/*_test.js'
   },
   plugins: {
     allure: {
