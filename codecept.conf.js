@@ -13,6 +13,8 @@ exports.config = {
       user: process.env.BROWSERSTACK_USER,
       key: process.env.BROWSERSTACK_KEY,
       device: 'Samsung Galaxy S22 Ultra',
+      waitForTimeout: 15000,
+      waitForAction: 1000,
     }
   },
   include: {
