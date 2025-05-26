@@ -1,0 +1,41 @@
+name: Run Mobile Tests on BrowserStack
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Instalar Appium e CodeceptJS
+        run: npm install -g appium codeceptjs
+
+      - name: Criar e configurar BrowserStack
+        run: |
+          echo '{ 
+            "user": "${BROWSERSTACK_USERNAME}",
+            "key": "${BROWSERSTACK_ACCESS_KEY}",
+            "server": "hub.browserstack.com"
+          }' > browserstack.json
+
+      - name: Executar testes no BrowserStack
+        run: |
+          npx codeceptjs run --steps --profile browserstack
