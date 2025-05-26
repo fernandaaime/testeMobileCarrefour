@@ -17,6 +17,7 @@ module.exports = {
   },
 
   async preencherFormulario(email, senha) {
+    const I = inject();
 
     I.tap('//android.widget.TextView[@text="Login"]');
     I.tap('//android.widget.TextView[@text="Sign up"]');
@@ -27,10 +28,12 @@ module.exports = {
   },
 
   async enviarCadastro() {
+    const I = inject();
     I.tap(this.buttons.signUp);
   },
 
   async verificarCadastroComSucesso() {
+    const I = inject();
     I.waitForElement(this.alerts.successTitle, 15);
     I.wait(2); // Garante que o alerta está visível antes da verificação
     I.see('Signed Up!', this.alerts.successTitle);
