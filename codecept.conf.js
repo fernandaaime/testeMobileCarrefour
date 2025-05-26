@@ -13,7 +13,7 @@ exports.config = {
     }
   },
   include: {
-    I: './login_test.js'
+    I: './login_test.js',
   },
   plugins: {
     allure: {
