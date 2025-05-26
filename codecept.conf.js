@@ -6,10 +6,10 @@ exports.config = {
       app: "bs://293687243fde616dc5b2189c030d964bc89f71d2",
       host: "hub-cloud.browserstack.com",
       port: 4444,
-      platform: "ios",
+      platform: "Android",
       user: process.env.BROWSERSTACK_USER,
       key: process.env.BROWSERSTACK_KEY,
-      device: "iphone 7",
+      device: "Samsung Galaxy S22 Ultra",
     }
   },
   include: {
