@@ -1,5 +1,3 @@
-const { I } = inject();
-
 module.exports = {
   fields: {
     email: '//android.widget.EditText[@content-desc="input-email"]',
@@ -17,22 +15,25 @@ module.exports = {
   },
 
   async preencherFormulario(email, senha) {
-    I.tap('//android.widget.TextView[@text="Login"]');
-    I.tap('//android.widget.TextView[@text="Sign up"]');
-    I.waitForVisible(this.fields.email, 15);
-    I.fillField(this.fields.email, email);
-    I.fillField(this.fields.password, senha);
-    I.fillField(this.fields.repeatPassword, senha);
+    const { I } = inject();
+    await I.tap('//android.widget.TextView[@text="Login"]');
+    await I.tap('//android.widget.TextView[@text="Sign up"]');
+    await I.waitForElement(this.fields.email, 15);
+    await I.fillField(this.fields.email, email);
+    await I.fillField(this.fields.password, senha);
+    await I.fillField(this.fields.repeatPassword, senha);
   },
 
   async enviarCadastro() {
-    I.tap(this.buttons.signUp);
+    const { I } = inject();
+    await I.tap(this.buttons.signUp);
   },
 
   async verificarCadastroComSucesso() {
-    I.waitForVisible(this.alerts.successTitle, 15);
-    I.wait(2);
-    I.see('Signed Up!', this.alerts.successTitle);
-    I.tap(this.buttons.confirm);
+    const { I } = inject();
+    await I.waitForElement(this.alerts.successTitle, 15);
+    await I.wait(2);
+    await I.see('Signed Up!', this.alerts.successTitle);
+    await I.tap(this.buttons.confirm);
   },
 };
