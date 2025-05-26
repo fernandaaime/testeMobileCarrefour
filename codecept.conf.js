@@ -7,8 +7,8 @@ exports.config = {
       host: "hub-cloud.browserstack.com",
       port: 4444,
       platform: "ios",
-      user: "process.env.BROWSERSTACK_USER",
-      key: "process.env.BROWSERSTACK_KEY",
+      user: process.env.BROWSERSTACK_USER,
+      key: process.env.BROWSERSTACK_KEY,
       device: "iphone 7",
     }
   },
