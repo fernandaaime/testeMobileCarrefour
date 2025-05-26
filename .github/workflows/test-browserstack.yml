@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Instalar Appium 2.x e CodeceptJS
-        run: npm install -g appium@latest codeceptjs @codeceptjs/allure-legacy
+        run: npm install -g appium@latest codeceptjs@latest @codeceptjs/allure-legacy
 
       - name: Instalar WebDriverIO
         run: npm install -g webdriverio@latest
