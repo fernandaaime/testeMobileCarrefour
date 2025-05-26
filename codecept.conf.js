@@ -1,20 +1,22 @@
 require('./hooks/clearAppCache');
 
 exports.config = {
+  tests: './tests/*_test.js',
+  timeout: 10000,
+  output: './output',
   helpers: {
     Appium: {
-      app: "bs://293687243fde616dc5b2189c030d964bc89f71d2",
-      host: "hub-cloud.browserstack.com",
+      app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2',
+      host: 'hub-cloud.browserstack.com',
       port: 4444,
-      platform: "Android",
+      platform: 'Android',
       user: process.env.BROWSERSTACK_USER,
       key: process.env.BROWSERSTACK_KEY,
-      device: "Samsung Galaxy S22 Ultra",
+      device: 'Samsung Galaxy S22 Ultra',
     }
   },
   include: {
-    I: './steps_file.js',
-    LoginTest: './tests/*_test.js'
+    I: './steps_file.js'
   },
   plugins: {
     allure: {
