@@ -61,5 +61,5 @@ Scenario('Acessibilidade para aba Webview', async ({ I }) => { // Adicionado { I
 });
 
 Scenario('Funcionamento do scroll vertical e navegação no Submenu', async ({ I }) => { // Adicionado { I }
-  await NavegacaoSubmenu.scrollAteGetStarted(I); // Passando 'I'
+  await NavegacaoSubmenu.scrollAteGetStarted(I); // Passando 'I' '
 });
