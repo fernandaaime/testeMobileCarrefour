@@ -2,22 +2,24 @@ require('./hooks/clearAppCache');
 
 exports.config = {
   tests: './tests/*_test.js',
-  timeout: 10, // Ajustado para segundos
+  timeout: 10,
   output: './output',
   helpers: {
     Appium: {
-
-      platformName: 'Android', // Duplicar aqui para a verificação inicial do CodeceptJS
-      app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2', // Duplicar aqui também
+      platformName: 'Android',
+      app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2',
 
       host: 'hub-cloud.browserstack.com',
-      port: 443, // Porta padrão HTTPS do BrowserStack
+      port: 443,
+      // --- Adicione esta linha ---
+      protocol: 'https', // Força a conexão a usar HTTPS
+      // --- Fim da adição ---
       user: process.env.BROWSERSTACK_USER,
       key: process.env.BROWSERSTACK_KEY,
       restart: false,
       keepBrowserState: true,
       keepCookies: true,
-      waitForTimeout: 15000, // Tempo de espera para elementos em milissegundos
+      waitForTimeout: 15000,
 
       desiredCapabilities: {
         platformName: 'Android',
