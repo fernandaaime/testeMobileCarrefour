@@ -1,19 +1,30 @@
 require('./hooks/clearAppCache');
 
 exports.config = {
+  tests: './*_test.js',
+  output: './output',
   helpers: {
     Appium: {
-      app: "bs://293687243fde616dc5b2189c030d964bc89f71d2",
-      host: "hub-cloud.browserstack.com",
-      port: 4444,
-      platform: "Android",
-      user: "BROWSERSTACK_USER",
-      key: "BROWSERSTACK_KEY",
-      device: "Samsung Galaxy S22 Ultra",
+      host: 'localhost',
+      port: 4723,
+      path: '/',
+      protocol: 'http',
+      platform: 'Android',
+      chromedriverExecutableDir: './drivers',
+      chromedriverExecutable: './drivers/chromedriver.exe',
+      chromedriverMappingFile: './chromedriver-mapping.json',
+      'appium:chromedriverExecutable': 'C:\\caminho\\para\\chromedriver.exe',
+      'appium:chromedriverAutodownload': true,
       desiredCapabilities: {
-        "browserstack.networkLogs": true,
-        "browserstack.debug": true,
-        "autoGrantPermissions": true
+        platformName: 'Android',
+        automationName: 'UiAutomator2',
+        deviceName: 'emulator-5554', // atualizado para o nome lógico do device
+        "appium:udid": "emulator-5554",
+        platformVersion: '12',
+        app: "C:\\Users\\aime_\\Downloads\\android.wdio.native.app.v1.0.8.apk",
+        appPackage: 'com.wdiodemoapp',
+        appActivity: 'com.wdiodemoapp.MainActivity',
+        noReset: true
       }
     }
   },
