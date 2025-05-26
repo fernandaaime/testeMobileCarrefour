@@ -13,8 +13,12 @@ exports.config = {
       user: process.env.BROWSERSTACK_USER,
       key: process.env.BROWSERSTACK_KEY,
       device: 'Samsung Galaxy S22 Ultra',
-      waitForTimeout: 15000,
-      waitForAction: 1000,
+      automationName: 'UiAutomator2',       
+      appWaitActivity: '*',                   
+      webdriverio: {
+        version: '8.18.2'
+      },
+      waitForTimeout: 15000,                  
     }
   },
   include: {
