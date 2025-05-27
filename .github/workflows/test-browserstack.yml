@@ -40,4 +40,4 @@ jobs:
           }' > browserstack.json
 
       - name: Executar testes no BrowserStack
-        run: npx codeceptjs run --steps 
+        run: npx codeceptjs run --steps --verbose
