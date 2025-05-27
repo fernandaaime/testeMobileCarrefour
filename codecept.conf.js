@@ -9,7 +9,7 @@ exports.config = {
       platformName: 'Android',
       app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2',
 
-      host: 'hub-cloud.browserstack.com',
+      host: 'hub-cloud.browserstack.com/wd/hub',
       port: 443,
       // --- Adicione esta linha ---
       protocol: 'https', // Força a conexão a usar HTTPS
