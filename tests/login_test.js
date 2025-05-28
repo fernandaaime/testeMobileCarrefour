@@ -48,7 +48,7 @@ Scenario('Navegação entre abas', async () => {
 });
 
 Scenario('Funcionalidade Scroll Horizontal', async ({ I }) => {
-  await ScrollPage.realizarScrollHorizontal(5);
+  await ScrollPage.realizarScrollHorizontal(I, 5);
 });
 
 Scenario('Acessibilidade de suporte', async () => {
@@ -60,5 +60,5 @@ Scenario('Acessibilidade para aba Webview', async () => {
 });
 
 Scenario('Funcionamento do scroll vertical e navegação no Submenu', async ({ I }) => {
-  await NavegacaoSubmenu.scrollAteGetStarted();
+  await NavegacaoSubmenu.scrollAteGetStarted(I);
 });
