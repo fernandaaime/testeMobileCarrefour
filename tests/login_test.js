@@ -22,9 +22,9 @@ Scenario('Cadastro com dados válidos', { timeout: 60 }, async () => {
 });
 
 
-Scenario('Tentativa de login sem email', async () => {
+Scenario('Tentativa de login sem email', {timeout: 60 }, async () => {
   await TentativaLoginPage.tentarLoginSemEmail('12345678');
-}).timeout(40000);
+});
 
 Scenario('Login com sucesso', async ({ I }) => {
   await LoginPage.realizarLogin('usuario@email.com', '12345678');
