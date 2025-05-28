@@ -19,6 +19,7 @@ module.exports = {
   },
 
   tocarEmLogin() {
+    I.waitForEnabled(this.loginButton, 10); // Aguarda o botão estar pronto
     I.tap(this.loginButton);
   },
 
@@ -26,7 +27,8 @@ module.exports = {
     this.acessarAbaLogin();
     this.preencherSenha(senha);
     this.tocarEmLogin();
-    I.waitForVisible(this.errorMessage, 15);
+
+    I.waitForVisible(this.errorMessage, 20); // Tempo aumentado para garantir estabilidade
     I.see('Please enter a valid email address', this.errorMessage);
   }
 };

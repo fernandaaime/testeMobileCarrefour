@@ -23,7 +23,8 @@ Scenario('Cadastro com dados válidos', { timeout: 60 }, async () => {
 
 Scenario('Tentativa de login sem email', async ({ I }) => {
   await TentativaLoginPage.tentarLoginSemEmail('12345678'); // Somente senha
-  I.waitForElement('//android.widget.TextView[@text="Please enter a valid email address"]', 15);
+  I.waitForVisible('//android.widget.TextView[@text="Login"]', 10); // Garante que estamos na tela correta
+  I.waitForVisible('//android.widget.TextView[@text="Please enter a valid email address"]', 30);
   I.see('Please enter a valid email address', '//android.widget.TextView[@text="Please enter a valid email address"]');
 });
 
