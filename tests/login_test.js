@@ -114,7 +114,7 @@ Scenario('Navegação entre abas', async () => {
 });
 
 Scenario('Funcionalidade Scroll Horizontal', async () => {
-  await I.waitForElement('//android.widget.ScrollView', 10); // Aguarda o ScrollView visível antes do scroll
+  await I.scrollTo('//android.widget.ScrollView');
   await ScrollPage.realizarScrollHorizontal(5);
 });
 
