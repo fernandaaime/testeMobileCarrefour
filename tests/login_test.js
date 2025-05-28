@@ -2,14 +2,12 @@ Feature('Testes Mobile');
 
 const { abrirAplicativo } = require('../pages/appActions');
 const CadastroPage = require('../pages/CadastroPage');
-const TentativaLoginPage = require('../pages/TentativaLoginPage');
 const LoginPage = require('../pages/LoginPage');
 const LoginErroPage = require('../pages/LoginErroPage');
 const FormPage = require('../pages/FormsPage');
 const NavegacaoPage = require('../pages/NavegacaoPage');
 const SuportePage = require('../pages/SuportePage');
 const AbaWebViewPage = require('../pages/AbaWebViewPage');
-const NavegacaoSubmenu = require('../pages/NavegacaoSubmenu');
 
 Scenario('Abrir o aplicativo', async ({ I }) => {
   await abrirAplicativo(I); 
