@@ -1,4 +1,4 @@
-// pages/LoginPage.js
+
 const { I } = inject();
 
 module.exports = {

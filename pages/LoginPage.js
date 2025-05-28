@@ -1,13 +1,13 @@
 const { I } = inject();
 
 module.exports = {
-  // Elementos (locators)
+  
   loginTab: '//android.widget.TextView[@text="Login"]',
   emailField: '//android.widget.EditText[@content-desc="input-email"]',
   passwordField: '//android.widget.EditText[@content-desc="input-password"]',
   loginButton: '//android.widget.TextView[@text="LOGIN"]',
 
-  // Métodos
+ 
   acessarAbaLogin() {
     I.waitForVisible(this.loginTab, 10);
     I.tap(this.loginTab);

@@ -6,15 +6,15 @@ exports.config = {
   output: './output',
   helpers: {
     Appium: {
-      // --- Capacidades duplicadas para satisfazer o CodeceptJS ---
+      
       platformName: 'Android',
       app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2',
-      // --- Fim da duplicação ---
+     
 
       host: 'hub-cloud.browserstack.com',
       port: 443,
       protocol: 'https',
-      path: '/wd/hub/', // Caminho para a API do WebDriver
+      path: '/wd/hub/', 
       user: process.env.BROWSERSTACK_USERNAME,
       key: process.env.BROWSERSTACK_ACCESS_KEY,
       restart: false,
@@ -23,20 +23,14 @@ exports.config = {
       waitForTimeout: 15000,
 
       desiredCapabilities: {
-        // --- Capacidades padrão do Appium (para o servidor BrowserStack/Appium) ---
+        
         platformName: 'Android',
         app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2',
         automationName: 'UiAutomator2',
         appWaitActivity: '*',
 
-        // --- Capacidades específicas do BrowserStack ---
         'bstack:options': {
           deviceName: 'Samsung Galaxy S22 Ultra',
-          // Não coloque app, automationName, appWaitActivity aqui novamente.
-          // Isso foi o erro anterior.
-          // Coloque apenas capacidades como project, build, osVersion, etc.
-          // Ex: project: "Carrefour Mobile Tests",
-          // Ex: build: "Build 1.0",
         },
       },
 
