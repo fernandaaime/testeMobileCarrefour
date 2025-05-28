@@ -114,7 +114,11 @@ Scenario('Navegação entre abas', async () => {
 });
 
 Scenario('Funcionalidade Scroll Horizontal', async () => {
-  await I.executeScript('mobile: scroll', { direction: 'right' });
+  await I.performTouchAction([
+  { action: 'press', x: 800, y: 1000 },
+  { action: 'moveTo', x: 200, y: 1000 },
+  { action: 'release' }
+]);
 });
 
 Scenario('Acessibilidade de suporte', async () => {
