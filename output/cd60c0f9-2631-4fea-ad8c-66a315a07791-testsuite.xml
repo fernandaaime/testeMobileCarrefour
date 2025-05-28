@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1748390639152' stop='1748390639152'>
+    <name>Testes Mobile:</name>
+    <title>Testes Mobile:</title>
+    <test-cases>
+        <test-case start='1748390639152' status='pending' stop='1748390639152'>
+            <name>Funcionamento do scroll vertical e navegação no Submenu</name>
+            <title>Funcionamento do scroll vertical e navegação no Submenu</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Skipped due to failure in 'before' hook</message>
+                <stack-trace>undefined</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

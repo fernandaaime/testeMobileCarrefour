@@ -14,8 +14,8 @@ exports.config = {
       // --- Adicione esta linha ---
       protocol: 'https', // Força a conexão a usar HTTPS
       // --- Fim da adição ---
-      user: process.env.BROWSERSTACK_USERNAME,
-      key: process.env.BROWSERSTACK_ACCESS_KEY,
+      user: process.env.BROWSERSTACK_USER,
+      key: process.env.BROWSERSTACK_KEY,
       restart: false,
       keepBrowserState: true,
       keepCookies: true,
