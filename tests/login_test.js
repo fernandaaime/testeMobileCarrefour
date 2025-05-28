@@ -82,8 +82,19 @@ Scenario('Abrir o aplicativo', async ({ I }) => {
 });
 
 Scenario('Cadastro com dados válidos', async () => {
+  // Aguarda o carregamento dos campos antes de preenchê-los
+  await I.waitForElement('//android.widget.EditText[@content-desc="input-email"]', 15);
+  await I.waitForElement('//android.widget.EditText[@content-desc="input-password"]', 15);
+  await I.waitForElement('//android.widget.EditText[@content-desc="input-repeat-password"]', 15);
+
+  // Preenchimento do formulário
   await CadastroPage.preencherFormulario('fernanda.aime@gmail.com', '12345678');
+
+  // Envio do cadastro
   await CadastroPage.enviarCadastro();
+
+  // Espera o alerta de sucesso aparecer antes de verificar
+  await I.waitForElement('//android.widget.TextView[@resource-id="android:id/alertTitle"]', 15);
   await CadastroPage.verificarCadastroComSucesso();
 }).timeout(40000);
 
