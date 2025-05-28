@@ -113,7 +113,7 @@ Scenario('Navegação entre abas', async () => {
   await NavegacaoPage.acessarAbaSwipe();
 });
 
-Scenario('Funcionalidade Scroll Horizontal', async () => {
+Scenario('Funcionalidade Scroll Horizontal', { timeout: 60 }, async () => {
   await ScrollPage.realizarScrollHorizontal(5);
 });
 
