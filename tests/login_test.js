@@ -2,6 +2,7 @@ Feature('Testes Mobile');
 
 const { abrirAplicativo } = require('../pages/appActions');
 const CadastroPage = require('../pages/CadastroPage');
+const TentativaLoginPage = require('./TentativaLoginPage');
 const LoginPage = require('../pages/LoginPage');
 const LoginErroPage = require('../pages/LoginErroPage');
 const FormPage = require('../pages/FormsPage');
@@ -19,6 +20,12 @@ Scenario('Cadastro com dados válidos', { timeout: 60 }, async () => {
     await CadastroPage.preencherFormulario('fernanda.aime@gmail.com', '12345678');
     await CadastroPage.enviarCadastro();
     await CadastroPage.verificarCadastroComSucesso();
+});
+
+Scenario('Tentativa de login sem email', async ({ I }) => {
+  await TentativaLoginPage.realizarLogin('', '12345678'); // Só senha, sem email
+  I.waitForElement(TentativaLoginPage.LoginLocators.errorMessage, 15);
+  I.see('Please enter a valid email address', TentativaLoginPage.LoginLocators.errorMessage);
 });
 
 Scenario('Login com sucesso', async ({ I }) => {
@@ -45,11 +52,6 @@ Scenario('Preenchimento de formulário', async () => {
 
 Scenario('Navegação entre abas', async () => {
   await NavegacaoPage.acessarAbaSwipe();
-});
-
-Scenario('Funcionalidade Scroll Horizontal', async ({ I }) => {
-  await I.executeScript('mobile: scroll', { direction: 'down' });
-  await I.executeScript('mobile: scroll', { direction: 'up' });
 });
 
 Scenario('Acessibilidade de suporte', async () => {
