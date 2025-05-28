@@ -18,9 +18,16 @@ module.exports = {
     const { I } = inject();
     await I.tap('//android.widget.TextView[@text="Login"]');
     await I.tap('//android.widget.TextView[@text="Sign up"]');
+    
     await I.waitForElement(this.fields.email, 15);
     await I.fillField(this.fields.email, email);
+
+    await I.waitForElement(this.fields.password, 15);
     await I.fillField(this.fields.password, senha);
+    
+    await I.wait(0.5); // pequena pausa para estabilidade
+
+    await I.waitForElement(this.fields.repeatPassword, 15);
     await I.fillField(this.fields.repeatPassword, senha);
   },
 

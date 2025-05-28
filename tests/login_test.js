@@ -21,12 +21,12 @@ Scenario('Abrir o aplicativo', async ({ I }) => {
   await CadastroPage.verificarCadastroComSucesso(I); // Passando 'I'
 });*/
 
+
 Scenario('Cadastro com dados válidos', async () => {
   await CadastroPage.preencherFormulario('fernanda.aime@gmail.com', 'senhaSegura123');
   await CadastroPage.enviarCadastro();
   await CadastroPage.verificarCadastroComSucesso();
-}).timeout(30000);
-
+}).timeout(40000);
 
 Scenario('Login com sucesso', async ({ I }) => { // Adicionado { I }
   await LoginPage.realizarLogin(I, 'usuario@email.com', '12345678'); // Passando 'I'
