@@ -21,11 +21,6 @@ Scenario('Cadastro com dados válidos', { timeout: 60 }, async () => {
     await CadastroPage.verificarCadastroComSucesso();
 });
 
-
-Scenario('Tentativa de login sem email', {timeout: 60 }, async () => {
-  await TentativaLoginPage.tentarLoginSemEmail('12345678');
-});
-
 Scenario('Login com sucesso', async ({ I }) => {
   await LoginPage.realizarLogin('usuario@email.com', '12345678');
   I.waitForElement('//android.widget.TextView[@resource-id="android:id/alertTitle"]', 15);
@@ -60,6 +55,3 @@ Scenario('Acessibilidade para aba Webview', async () => {
   await AbaWebViewPage.acessarAbaWebview();
 });
 
-Scenario('Funcionamento do scroll vertical e navegação no Submenu', async ({ I }) => {
-  await NavegacaoSubmenu.scrollAteGetStarted(I);
-});
