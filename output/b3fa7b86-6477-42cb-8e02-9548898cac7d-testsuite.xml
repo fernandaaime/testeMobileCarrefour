@@ -1,0 +1,32 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1748404863967' stop='1748404867401'>
+    <name>Testes Mobile:</name>
+    <title>Testes Mobile:</title>
+    <test-cases>
+        <test-case start='1748404867371' status='failed' stop='1748404867373'>
+            <name>BeforeSuite of suite Testes Mobile: failed.</name>
+            <title>BeforeSuite of suite Testes Mobile: failed.</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='codeceptjs'/>
+            </labels>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Can't connect to WebDriver.
+                Error: Failed to create session.
+                Authorization required
+                
+                Please make sure Selenium Server is running and accessible</message>
+                <stack-trace>Error: Failed to create session.
+                Authorization required
+                    at startWebDriverSession (file:///C:/Users/aime_/testeMobileCarrefour/node_modules/webdriver/build/utils.js:69:15)
+                    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+                    at async WebDriver.newSession (file:///C:/Users/aime_/testeMobileCarrefour/node_modules/webdriver/build/index.js:19:45)
+                    at async remote (file:///C:/Users/aime_/testeMobileCarrefour/node_modules/webdriverio/build/index.js:46:22)
+                    at async Appium._startBrowser (C:\Users\aime_\testeMobileCarrefour\node_modules\codeceptjs\lib\helper\Appium.js:322:24)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

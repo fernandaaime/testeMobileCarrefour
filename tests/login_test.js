@@ -114,7 +114,12 @@ Scenario('Navegação entre abas', async () => {
 });
 
 Scenario('Funcionalidade Scroll Horizontal', async () => {
-  await I.swipe('//android.widget.ScrollView', 0, 500, 0, 0);
+  // Faz um swipe horizontal na tela
+  await I.performTouchAction([
+  { action: 'press', x: 900, y: 1000 }, // Pressiona na lateral direita
+  { action: 'moveTo', x: 100, y: 1000 }, // Arrasta para a esquerda
+  { action: 'release' }
+]);
 });
 
 Scenario('Acessibilidade de suporte', async () => {
