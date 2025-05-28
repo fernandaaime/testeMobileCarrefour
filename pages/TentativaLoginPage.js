@@ -13,9 +13,9 @@ module.exports = {
   async realizarLogin(email, senha) {
     console.log(`Tentando login com email: "${email}" e senha: "${senha}"`);
     
-    I.waitForElement(LoginLocators.passwordField, 10); 
+    I.waitForElement(LoginLocators.passwordField, 15); 
     if (email) {
-      I.waitForElement(LoginLocators.emailField, 10);
+      I.waitForElement(LoginLocators.emailField, 15);
       I.fillField(LoginLocators.emailField, email);
     }
     I.fillField(LoginLocators.passwordField, senha);
