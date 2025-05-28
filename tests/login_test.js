@@ -9,6 +9,7 @@ const NavegacaoPage = require('../pages/NavegacaoPage');
 const SuportePage = require('../pages/SuportePage');
 const AbaWebViewPage = require('../pages/AbaWebViewPage');
 const PesquisaPage = require('../pages/PesquisaPage');
+const PesquisaPage = require('../pages/CancelarPesquisaPage');
 
 Scenario('Abrir o aplicativo', async ({ I }) => {
   await abrirAplicativo(I); 
@@ -63,4 +64,9 @@ Scenario('Validando campo de pesquisa Webview', async () => {
 Scenario('Acessar aba Webview e clicar na pesquisa', async ({ I }) => {
   PesquisaPage.acessarAbaWebview();
   I.waitForVisible(PesquisaPage.pesquisa, 15);
+});
+
+Scenario('Acessar aba Webview, clicar na pesquisa e depois cancelar', ({ I }) => {
+  PesquisaPage.acessarAbaWebview();
+  I.waitForVisible(PesquisaPage.cancelar, 15);
 });
