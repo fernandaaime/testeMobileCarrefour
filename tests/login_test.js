@@ -47,8 +47,7 @@ Scenario('Navegação entre abas', async () => {
   await NavegacaoPage.acessarAbaSwipe();
 });
 
-Scenario('Funcionalidade Scroll Horizontal', async () => {
-  await I.scrollTo('//android.widget.ScrollView');
+Scenario('Funcionalidade Scroll Horizontal', async ({ I }) => {
   await ScrollPage.realizarScrollHorizontal(5);
 });
 
@@ -60,7 +59,6 @@ Scenario('Acessibilidade para aba Webview', async () => {
   await AbaWebViewPage.acessarAbaWebview();
 });
 
-Scenario('Funcionamento do scroll vertical e navegação no Submenu', async () => {
-  await I.waitForElement('//android.widget.ScrollView', 10); // Aguarda a área de scroll carregada
+Scenario('Funcionamento do scroll vertical e navegação no Submenu', async ({ I }) => {
   await NavegacaoSubmenu.scrollAteGetStarted();
 });
