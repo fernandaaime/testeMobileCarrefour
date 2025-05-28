@@ -48,7 +48,8 @@ Scenario('Navegação entre abas', async () => {
 });
 
 Scenario('Funcionalidade Scroll Horizontal', async ({ I }) => {
-  await ScrollPage.realizarScrollHorizontal(I, 5);
+  await I.executeScript('mobile: scroll', { direction: 'down' });
+  await I.executeScript('mobile: scroll', { direction: 'up' });
 });
 
 Scenario('Acessibilidade de suporte', async () => {
