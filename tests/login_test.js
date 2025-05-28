@@ -114,7 +114,7 @@ Scenario('Navegação entre abas', async () => {
 });
 
 Scenario('Funcionalidade Scroll Horizontal', async () => {
-  await I.swipe('//android.widget.ScrollView', -500, 0);
+  await I.executeScript('mobile: scroll', { direction: 'right' });
 });
 
 Scenario('Acessibilidade de suporte', async () => {
