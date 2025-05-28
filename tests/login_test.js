@@ -113,8 +113,8 @@ Scenario('Navegação entre abas', async () => {
   await NavegacaoPage.acessarAbaSwipe();
 });
 
-Scenario('Funcionalidade Scroll Horizontal', { timeout: 60 }, async () => {
-  await ScrollPage.realizarScrollHorizontal(5);
+Scenario('Funcionalidade Scroll Horizontal', async () => {
+  await I.swipe('//android.widget.ScrollView', 0, 500, 0, 0);
 });
 
 Scenario('Acessibilidade de suporte', async () => {
