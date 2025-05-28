@@ -3,7 +3,7 @@ require('./hooks/clearAppCache');
 exports.config = {
   tests: './tests/*_test.js',
   timeout: 10,
-   output: './output',
+  output: './output',
   helpers: {
     Appium: {
       // --- Capacidades duplicadas para satisfazer o CodeceptJS ---
@@ -13,9 +13,14 @@ exports.config = {
 
       host: 'hub-cloud.browserstack.com',
       port: 443,
+      protocol: 'https',
+      path: '/wd/hub/', // Caminho para a API do WebDriver
+      user: process.env.BROWSERSTACK_USERNAME,
+      key: process.env.BROWSERSTACK_ACCESS_KEY,
+      restart: false,
+      keepBrowserState: true,
       keepCookies: true,
       waitForTimeout: 15000,
-
 
       desiredCapabilities: {
         // --- Capacidades padrão do Appium (para o servidor BrowserStack/Appium) ---
@@ -31,10 +36,9 @@ exports.config = {
           // Isso foi o erro anterior.
           // Coloque apenas capacidades como project, build, osVersion, etc.
           // Ex: project: "Carrefour Mobile Tests",
-          // Ex: build: "Build 1.0", ddd
+          // Ex: build: "Build 1.0",
         },
       },
-
 
       webdriverio: {
         version: '8.18.2'
