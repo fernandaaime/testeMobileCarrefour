@@ -1,19 +1,13 @@
-const { I } = inject();
+async realizarLogin(email, senha) {
+  I.waitForElement(this.loginButton, 15); // Aguarda a tela carregar completamente
+  console.log(`Tentando login com email: "${email}" e senha: "${senha}"`);
 
-module.exports = {
-  emailField: '//android.widget.EditText[@resource-id="com.wdiodemoapp:id/email"]',
-  passwordField: '//android.widget.EditText[@resource-id="com.wdiodemoapp:id/password"]',
-  loginButton: '//android.widget.Button[@resource-id="com.wdiodemoapp:id/login"]',
-
-  async realizarLogin(email, senha) {
-    console.log(`Tentando login com email: "${email}" e senha: "${senha}"`);
-
-    I.waitForElement(this.passwordField, 10); // Aguarda o campo de senha para garantir que a tela carregou
-    if (email) {
-      I.waitForElement(this.emailField, 10);
-      I.fillField(this.emailField, email);
-    }
-    I.fillField(this.passwordField, senha);
-    I.tap(this.loginButton);
+  if (email) {
+    I.waitForElement(this.emailField, 10);
+    I.fillField(this.emailField, email);
   }
-};
+  
+  I.waitForElement(this.passwordField, 10);
+  I.fillField(this.passwordField, senha);
+  I.tap(this.loginButton);
+}
