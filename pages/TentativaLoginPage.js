@@ -1,27 +1,32 @@
 const { I } = inject();
 
-const LoginLocators = {
-  emailField: '//android.widget.EditText[@resource-id="com.wdiodemoapp:id/email"]',
-  passwordField: '//android.widget.EditText[@content-desc="input-password"]',
-  loginButton: '//android.widget.Button[@resource-id="com.wdiodemoapp:id/login"]',
-  errorMessage: '//android.widget.TextView[@text="Please enter a valid email address"]'
-};
-
 module.exports = {
-  LoginLocators,
+  // Elementos (locators)
+  loginTab: '//android.widget.TextView[@text="Login"]',
+  passwordField: '//android.widget.EditText[@content-desc="input-password"]',
+  loginButton: '//android.widget.TextView[@text="LOGIN"]',
+  errorMessage: '//android.widget.TextView[@text="Please enter a valid email address"]',
 
-  async realizarLogin(email, senha) {
-    console.log(`Tentando login com email: "${email}" e senha: "${senha}"`);
+  // Métodos
+  acessarAbaLogin() {
+    I.waitForVisible(this.loginTab, 10);
+    I.tap(this.loginTab);
+  },
 
-    I.waitForVisible(LoginLocators.passwordField, 20);
-    I.waitForEnabled(LoginLocators.loginButton, 10);
+  preencherSenha(senha) {
+    I.waitForVisible(this.passwordField, 15);
+    I.fillField(this.passwordField, senha);
+  },
 
-    if (email) {
-      I.waitForVisible(LoginLocators.emailField, 15);
-      I.fillField(LoginLocators.emailField, email);
-    }
+  tocarEmLogin() {
+    I.tap(this.loginButton);
+  },
 
-    I.fillField(LoginLocators.passwordField, senha);
-    I.tap(LoginLocators.loginButton);
+  tentarLoginSemEmail(senha) {
+    this.acessarAbaLogin();
+    this.preencherSenha(senha);
+    this.tocarEmLogin();
+    I.waitForVisible(this.errorMessage, 15);
+    I.see('Please enter a valid email address', this.errorMessage);
   }
 };
