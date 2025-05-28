@@ -7,7 +7,6 @@ const LoginPage = require('../pages/LoginPage');
 const LoginErroPage = require('../pages/LoginErroPage');
 const FormPage = require('../pages/FormsPage');
 const NavegacaoPage = require('../pages/NavegacaoPage');
-const ScrollPage = require('../pages/ScrollPage');
 const SuportePage = require('../pages/SuportePage');
 const AbaWebViewPage = require('../pages/AbaWebViewPage');
 const NavegacaoSubmenu = require('../pages/NavegacaoSubmenu');
