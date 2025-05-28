@@ -8,7 +8,7 @@ const FormPage = require('../pages/FormsPage');
 const NavegacaoPage = require('../pages/NavegacaoPage');
 const SuportePage = require('../pages/SuportePage');
 const AbaWebViewPage = require('../pages/AbaWebViewPage');
-const PesquisaPage = require('./pages/PesquisaPage');
+const PesquisaPage = require('../pages/PesquisaPage');
 
 Scenario('Abrir o aplicativo', async ({ I }) => {
   await abrirAplicativo(I); 
