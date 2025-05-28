@@ -8,6 +8,7 @@ const FormPage = require('../pages/FormsPage');
 const NavegacaoPage = require('../pages/NavegacaoPage');
 const SuportePage = require('../pages/SuportePage');
 const AbaWebViewPage = require('../pages/AbaWebViewPage');
+const PesquisaPage = require('./pages/PesquisaPage');
 
 Scenario('Abrir o aplicativo', async ({ I }) => {
   await abrirAplicativo(I); 
@@ -53,3 +54,13 @@ Scenario('Acessibilidade para aba Webview', async () => {
   await AbaWebViewPage.acessarAbaWebview();
 });
 
+Scenario('Validando campo de pesquisa Webview', async () => {
+  await AbaWebViewPage.acessarAbaWebview();
+
+});
+
+
+Scenario('Acessar aba Webview e clicar na pesquisa', async ({ I }) => {
+  PesquisaPage.acessarAbaWebview();
+  I.waitForVisible(PesquisaPage.pesquisa, 15);
+});
