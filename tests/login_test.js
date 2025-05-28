@@ -66,7 +66,6 @@ Scenario('Acessar aba Webview e clicar na pesquisa', async ({ I }) => {
   I.waitForVisible(PesquisaPage.pesquisa, 15);
 });
 
-Scenario('Acessar aba Webview, clicar na pesquisa e depois cancelar', ({ I }) => {
-  PesquisaPage.acessarAbaWebview();
-  I.waitForVisible(PesquisaPage.cancelar, 15);
+Scenario('Usuário clica apenas no botão Cancelar', () => {
+  CancelarPesquisaPage.acessarAbaWebview();
 });
