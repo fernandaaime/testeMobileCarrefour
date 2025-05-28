@@ -31,7 +31,7 @@ exports.config = {
           // Isso foi o erro anterior.
           // Coloque apenas capacidades como project, build, osVersion, etc.
           // Ex: project: "Carrefour Mobile Tests",
-          // Ex: build: "Build 1.0",
+          // Ex: build: "Build 1.0", ddd
         },
       },
 
