@@ -2,7 +2,7 @@ const { container } = require('codeceptjs');
 
 module.exports = {
   async realizarScrollHorizontal(vezes = 5) {
-    const I = inject(); // garante acesso ao actor atual
+    const { I } = inject(); 
     const appium = container.helpers('Appium');
     const driver = appium.browser;
 

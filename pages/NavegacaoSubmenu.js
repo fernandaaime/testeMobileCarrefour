@@ -2,7 +2,7 @@ const { container } = require('codeceptjs');
 
 module.exports = {
   async scrollAteGetStarted() {
-    const I = inject();
+    const { I } = inject();
     const appium = container.helpers('Appium');
     const driver = appium.browser;
     const { width, height } = await driver.getWindowSize();
