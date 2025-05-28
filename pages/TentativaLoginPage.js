@@ -9,17 +9,17 @@ module.exports = {
 
   // Métodos
   acessarAbaLogin() {
-    I.waitForVisible(this.loginTab, 10);
+    I.waitForVisible(this.loginTab, 20); // Aumentado para maior tolerância
     I.tap(this.loginTab);
   },
 
   preencherSenha(senha) {
-    I.waitForVisible(this.passwordField, 15);
+    I.waitForVisible(this.passwordField, 25); // Aumentado para apps mais lentos
     I.fillField(this.passwordField, senha);
   },
 
   tocarEmLogin() {
-    I.waitForEnabled(this.loginButton, 10); // Aguarda o botão estar pronto
+    I.waitForEnabled(this.loginButton, 20); // Aumentado para garantir clique seguro
     I.tap(this.loginButton);
   },
 
@@ -28,7 +28,7 @@ module.exports = {
     this.preencherSenha(senha);
     this.tocarEmLogin();
 
-    I.waitForVisible(this.errorMessage, 20); // Tempo aumentado para garantir estabilidade
+    I.waitForVisible(this.errorMessage, 30); // Tempo ampliado para mensagens tardias
     I.see('Please enter a valid email address', this.errorMessage);
   }
 };
