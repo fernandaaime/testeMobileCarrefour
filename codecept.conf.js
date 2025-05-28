@@ -3,33 +3,38 @@ require('./hooks/clearAppCache');
 exports.config = {
   tests: './tests/*_test.js',
   timeout: 10,
-  output: './output',
+   output: './output',
   helpers: {
     Appium: {
+      // --- Capacidades duplicadas para satisfazer o CodeceptJS ---
       platformName: 'Android',
       app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2',
+      // --- Fim da duplicação ---
 
-      host: 'hub-cloud.browserstack.com/wd/hub',
+      host: 'hub-cloud.browserstack.com',
       port: 443,
-      // --- Adicione esta linha ---
-      protocol: 'https', // Força a conexão a usar HTTPS
-      // --- Fim da adição ---
-      user: process.env.BROWSERSTACK_USER,
-      key: process.env.BROWSERSTACK_KEY,
-      restart: false,
-      keepBrowserState: true,
       keepCookies: true,
       waitForTimeout: 15000,
 
+
       desiredCapabilities: {
+        // --- Capacidades padrão do Appium (para o servidor BrowserStack/Appium) ---
         platformName: 'Android',
+        app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2',
+        automationName: 'UiAutomator2',
+        appWaitActivity: '*',
+
+        // --- Capacidades específicas do BrowserStack ---
         'bstack:options': {
           deviceName: 'Samsung Galaxy S22 Ultra',
-          app: 'bs://293687243fde616dc5b2189c030d964bc89f71d2',
-          automationName: 'UiAutomator2',
-          appWaitActivity: '*',
+          // Não coloque app, automationName, appWaitActivity aqui novamente.
+          // Isso foi o erro anterior.
+          // Coloque apenas capacidades como project, build, osVersion, etc.
+          // Ex: project: "Carrefour Mobile Tests",
+          // Ex: build: "Build 1.0",
         },
       },
+
 
       webdriverio: {
         version: '8.18.2'
