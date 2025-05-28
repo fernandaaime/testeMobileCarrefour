@@ -2,7 +2,7 @@ Feature('Testes Mobile');
 
 const { abrirAplicativo } = require('../pages/appActions');
 const CadastroPage = require('../pages/CadastroPage');
-const TentativaLoginPage = require('../TentativaLoginPage');
+const TentativaLoginPage = require('../pages/TentativaLoginPage');
 const LoginPage = require('../pages/LoginPage');
 const LoginErroPage = require('../pages/LoginErroPage');
 const FormPage = require('../pages/FormsPage');
