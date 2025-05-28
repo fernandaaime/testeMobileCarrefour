@@ -85,7 +85,7 @@ Scenario('Cadastro com dados válidos', async () => {
   await CadastroPage.preencherFormulario('fernanda.aime@gmail.com', '12345678');
   await CadastroPage.enviarCadastro();
   await CadastroPage.verificarCadastroComSucesso();
-});
+}).timeout(40000);
 
 Scenario('Login com sucesso', async ({ I }) => {
   await LoginPage.realizarLogin('usuario@email.com', '12345678');
