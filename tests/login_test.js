@@ -1,15 +1,15 @@
 Feature('Testes Mobile');
 
-const { abrirAplicativo } = require('../pages/appActions');
-const CadastroPage = require('../pages/cadastroPage');
-const LoginPage = require('../pages/loginPage');
-const LoginErroPage = require('../pages/loginErroPage');
-const FormPage = require('../pages/formsPage');
-const NavegacaoPage = require('../pages/navegacaoPage');
-const SuportePage = require('../pages/suportePage');
-const AbaWebViewPage = require('../pages/abaWebViewPage');
+const { abrirAplicativo } = require('../pages/app_Actions');
+const CadastroPage = require('../pages/cadastro_Page');
+const LoginPage = require('../pages/login_Page');
+const LoginErroPage = require('../pages/login_Erro_Page');
+const FormPage = require('../pages/forms_Page');
+const NavegacaoPage = require('../pages/navegacao_Page');
+const SuportePage = require('../pages/suporte_Page');
+const AbaWebViewPage = require('../pages/aba_Web_View_Page');
 const PesquisaPage = require('../pages/pesquisaPage');
-const CancelarPesquisaPage = require('../pages/cancelarPesquisaPage');
+const CancelarPesquisaPage = require('../pages/cancelar_Pesquisa_Page');
 
 Scenario('Abrir o aplicativo', async ({ I }) => {
   await abrirAplicativo(I); 
