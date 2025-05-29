@@ -1,81 +1,65 @@
-Testes Automatizados Mobile com CodeceptJS + Appium + WebdriverIO
+# 📱 Testes Automatizados Mobile com CodeceptJS + Appium + WebdriverIO
 
-Este projeto realiza testes automatizados mobile utilizando CodeceptJS, Appium, WebdriverIO e Android Studio (emulador). A execução dos testes ocorre localmente e também na pipeline do GitHub Actions, utilizando BrowserStack como ambiente de execução.
+Este projeto realiza testes automatizados para aplicações mobile Android utilizando CodeceptJS, Appium, WebdriverIO e Android Studio (com emulador).  
+A execução pode ser feita localmente ou via GitHub Actions, com BrowserStack como ambiente remoto.
 
-Além disso, implementei a abordagem de Page Objects, garantindo uma estrutura mais organizada e reutilizável para os testes automatizados.
+Além disso, adota-se a abordagem de Page Objects, garantindo uma estrutura escalável, organizada e de fácil manutenção.
 
-TECNOLOGIAS UTILIZADAS
-CodeceptJS
+---
 
-Appium
+Tecnologias Utilizadas
 
-WebdriverIO
+- CodeceptJS
+- Appium 2.x
+- WebdriverIO
+- Android Studio
+- Appium Doctor
+- Appium Inspector
+- BrowserStack
+- GitHub Actions
 
-Android Studio
+---
 
-Appium Doctor
+Pré-requisitos
 
-GitHub Actions
+Antes de executar os testes, é necessário instalar e configurar os seguintes componentes corretamente: 
 
-BrowserStack 
+- Node.js (LTS)
+- Java JDK 11+
+- Android Studio com SDK e AVD (Android Virtual Device) configurados
+- Appium 2.x instalado globalmente
+Plugin necessário do Appium:
+- uiautomator2
 
-Appium Inspector
+---
 
+Verificações do Ambiente
+Utilize o Appium Doctor para garantir que todos os requisitos do ambiente estão corretos:
 
-PRÉ REQUISITOS
+---
 
-Certifique-se de ter os seguintes requisitos antes de executar os testes:
+Inspeção de Elementos
+Para facilitar a criação e manutenção dos testes, utilize o Appium Inspector, que permite inspecionar visualmente os elementos da tela e interagir com a interface da aplicação.
 
-Node.js LTS instalado
-
-Android Studio com SDK e AVD configurados
-
-Java instalado (11+)
-
-Appium 2.x instalado
-
-
-Plugins Appium necessários:
-
-Appium driver uiautomator2
-
-
-VERIFICAÇÕES
-
-Utilizei Appium Doctor para verificar se o ambiente está corretamente configurado:
-
-
-Inspeção de Elementos com Appium Inspector
-
-Para facilitar a inspeção dos elementos utilizei Appium Inspector. Essa ferramenta permite visualizar e interagir com os elementos da tela, facilitando a criação e manutenção dos testes automatizados.
-
-
-EXECUÇÃO DOS TESTES
-
+---
+Execução dos Testes
 Ambiente Local (Emulador Android Studio)
+Pipeline CI (GitHub Actions + BrowserStack)
+O projeto está configurado para executar automaticamente os testes a cada push utilizando GitHub Actions
 
-Os testes podem ser executados localmente com o emulador do Android Studio já configurado e rodando.
+O arquivo .github/workflows/ci.yml contempla:
 
+- Instalação de dependências
+- Execução dos testes no BrowserStack
+- Geração de relatórios com Allure
 
-PIPELINE (GitHub Actions + BrowserStack)
+Estrutura com Page Objects
+A arquitetura do projeto segue o padrão Page Object, separando a lógica dos testes dos elementos de UI.
+Cada página da aplicação possui uma classe própria, com métodos reutilizáveis e específicos, facilitando:
 
-O projeto está configurado para rodar a cada commit na pipeline do GitHub Actions utilizando BrowserStack. 
+- Reaproveitamento de código
+- Manutenção centralizada
+- Escalabilidade da suíte de testes
 
-
-O workflow .github/workflows/ci.yml já está configurado com os comandos necessários para:
-
-Instalar dependências
-
-Executar os testes no BrowserStack
-
-Validar os relatórios de execução
-
-
-ABORDAGEM PAGE OBJECTS
-
-Para garantir uma estrutura mais modular e organizada, adotei a abordagem de Page Objects, facilitando a manutenção e reutilização de componentes de UI. Cada página ou funcionalidade tem sua própria classe representando os elementos e ações disponíveis, reduzindo a duplicação de código e melhorando a escalabilidade dos testes.
-
-
-RELÁTORIOS COM ALLURE
-
-Os testes geram relatórios automáticos detalhados com screenshots em caso de falha, garantindo maior visibilidade dos resultados.
+Relatórios com Allure
+Os testes geram relatórios detalhados utilizando o Allure Reports.
