@@ -57,3 +57,4 @@ Scenario('Acessar aba Webview e clicar na pesquisa', async ({ I }) => {
 Scenario('Usuário clica apenas no botão Cancelar', () => {
   CancelarPesquisaPage.acessarAbaWebview();
 });
+
