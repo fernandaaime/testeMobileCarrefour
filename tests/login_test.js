@@ -8,7 +8,7 @@ const FormPage = require('../pages/forms_Page');
 const NavegacaoPage = require('../pages/navegacao_Page');
 const SuportePage = require('../pages/suporte_Page');
 const AbaWebViewPage = require('../pages/aba_Web_View_Page');
-const PesquisaPage = require('../pages/pesquisaPage');
+const PesquisaPage = require('../pages/pesquisa_Page');
 const CancelarPesquisaPage = require('../pages/cancelar_Pesquisa_Page');
 
 Scenario('Abrir o aplicativo', async ({ I }) => {
